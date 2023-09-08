@@ -1,0 +1,6 @@
+tema: https://www.gnome-look.org/p/1309320/
+dolphin: https://plus.diolinux.com.br/t/dolphin-sem-icones-dos-temas-ubuntu-19-04/8219
+:configuração: https://wiki.archlinux.org/index.php/GTK_\(Portugu%C3%AAs\)\#Ferramentas_de_configura%C3%A7%C3%A3o
+fácil configuração: https://github.com/deviantfero/wpgtk
+como usar: https://faq.i3wm.org/question/2974/how-to-use-gtk-themes-with-i3.1.html
+suporte: https://faq.i3wm.org/question/115/how-to-configure-gtk-theme-support/%3C/p%3E.html

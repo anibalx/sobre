@@ -1,0 +1,1 @@
+poetry = config python (mas também pode config o ambiente), ansible = config ambiente

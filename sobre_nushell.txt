@@ -1,0 +1,24 @@
+sys | get host.sessions == sys | host.sessions 
+
+ls | sort-by size | first 5 | skip 2 = lista todos arquivos do diretório atual, ordene por nome, exiba apenas os 5 primeiros resultados e retre os 2 primeiros da exibição final.
+
+ls | sort-by name size | nth 2 5 = lista todos arquivos do diretório atual, ordene por nome e tamanho, exiba as linhas 2 e 5. 
+
+
+echo "ls | sort-by name size | nth 2 5" | xclip -selection clipboard = exibe a passagem do comando acima para um comando externo.
+
+enter ≈ pushd = não é igual ao pushd, mas pode ser usado da mesma forma. Na realidade, enter "cria" um novo shell que poderá ser acesado. Para navegar entre os shells, n e p.
+
+exit --now = exit eleimina um shell, com --now todos serão eliminados.
+
+dentro do nushell:
+
+      ls = comando nushell
+     ^ls = comando sistema
+
+
+
+# REFERÊNCIAS:
+
+      -> https://www.nushell.sh/contributor-book/es/indice.html
+      -> https://www.nushell.sh/book/pt-BR/indice.html

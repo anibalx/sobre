@@ -1,0 +1,11 @@
+# Documentação
+  > https://gemini.circumlunar.space/docs/
+
+# FAQ
+  > https://gemini.circumlunar.space/docs/faq.gmi
+
+# Softwares
+  > https://gemini.circumlunar.space/software/
+
+# Gemtext
+  > https://gemini.circumlunar.space/docs/cheatsheet.gmi

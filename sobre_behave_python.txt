@@ -1,0 +1,46 @@
+ESTRUTURA DE PASTAS:
+
+        app/
+        |   features/
+        |   |   steps/
+        |   |   |   NOME_DO_MEU_ARQUIVO_DE_TESTE.py
+        |   |   NOME_DO_MEU_APP.feature
+
+
+
+COMO SE DÃO AS FEATURES:
+        
+    language:en
+
+    Feature: showing off behave
+
+      Scenario: run a simple test
+         Given we have behave installed
+          When we implement a test
+          Then behave will test it for us!
+
+
+    language:pt
+
+    Funcionalide: exibindo o  behave
+
+      Cenário: rode um teste simple
+         Dado que o behave está instalado
+          Quando um teste for implementado
+          Então behave testará isto para nós!
+
+
+COMO SE DÁ O ARQUIVO QUE TESTA AS FEATURES:
+  from behave import *
+
+  @given('que o behave está instalado')
+  def step_impl(context):
+      pass
+
+  @when('um teste for implementado')
+  def step_impl(context):
+      assert True is not False
+
+  @then('behave testará isto para nós!')
+  def step_impl(context):
+      assert context.failed is False
