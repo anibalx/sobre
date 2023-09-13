@@ -18,6 +18,14 @@
 		git commit -m "MENSAGEM REFERENTE AO QUE SERÁ COMITADO"
 		git push --set-upstream https://gitlab.com/usuario/repositório.git master 
 ```
+
+### Adiciona repositório remoto localmente (GitHub)
+```sh
+    git remote add origin git@github.com:usuario/repositório.git
+    git branch -M main
+    git push -u origin main
+```
+
 																	ou 
 ### Cria repositório (GitLab)
 ```sh
