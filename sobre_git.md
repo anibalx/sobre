@@ -22,6 +22,7 @@
 ### Adiciona repositório remoto localmente (GitHub)
 ```sh
     git remote add origin git@github.com:usuario/repositório.git
+    git pull git@github.com:usuario/repositório.git main
     git branch -M main
     git push -u origin main
 ```
