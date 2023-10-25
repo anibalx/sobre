@@ -309,6 +309,26 @@ git fetch
 git rebase
 ```
 
+# substitui commit por novo commit
+```
+	git commit "mensagem de substituição deste novo commit" --amend
+```
+
+# clone do projeto para o pendrive
+```
+	git clone --bare . /tmp/pendrive/projeto.git
+	git remote add origin /tmp/pendrive/projeto.git
+```
+
+# entregar repositório a um servidor qualquer
+##	dentro do diretório /tmp/pendrive/projeto.git
+```
+	git --bare update-server-info
+	mv hooks/post-update.sample hooks/post-update
+	python -m http.server 8000 &
+	cd /tmp
+	git clone http://localhost:8000 teste
+```
 		
 # REFERÊNCIAS:
 [Atlassian Tutorials](https://www.atlassian.com/br/git/tutorials)
