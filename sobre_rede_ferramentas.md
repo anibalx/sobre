@@ -61,9 +61,12 @@ Testa a conexão a um IP, por uma porta específica
   nmap -sT <IP> # TCP 
   nmap -sU <IP> # UDP
 ```
+
 * -T4 = IPv4
+* -A = ativa scanner
+* -v = mostre em modo verboso
 ```
-  nmap -T4 192.168.0.0/24
+  nmap -T4 -A -v 192.168.0.0/24
 ```
 
 
