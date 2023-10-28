@@ -61,6 +61,11 @@ Testa a conexão a um IP, por uma porta específica
   nmap -sT <IP> # TCP 
   nmap -sU <IP> # UDP
 ```
+. -T4 = IPv4
+```
+  nmap -T4 192.168.0.0/24
+```
+
 
 ## TCPDUMP
 Captura do fluxo de rede
