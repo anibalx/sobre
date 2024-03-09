@@ -1,3 +1,9 @@
+ASSUNTO:   
+            Vim: Open each buffer in a new tab
+
+LINK:
+            https://stackoverflow.com/questions/5481028/vim-open-each-buffer-in-a-new-tab
+
 ASSUNTO:
 			Map Shift+Enter
 LINK:
@@ -563,6 +569,7 @@ BUFFERS:
     :tabe <ARQUIVO> = abre arquivo numa nova tab
 
     :tab sb <ARQUIVO> = abre arquivo em buffer numa nova tab
+    :tab sball = Abre buffer em nova tab
 
     :badd = adiciona arquivo ao buffer
 
@@ -725,3 +732,5 @@ TELESCOPE
     <C-x> == split
     <C-v> == vsplit
     <C-t> == new tab
+
+
