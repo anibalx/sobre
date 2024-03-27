@@ -1,6 +1,6 @@
 # Data Science
 
-## Ferrmentas
+## Ferramentas
 * Jupyter Notebook
 * Google Colab
 * SQL
