@@ -329,6 +329,16 @@ git rebase
 	cd /tmp
 	git clone http://localhost:8000 teste
 ```
+
+# Clonar apenas uma branch
+```
+    git clone <URL> --branch <NOME_DA_BRANCH> --single-branch
+```
+
+# Alterar a mensagem de um commit
+```
+    git commit --amend -m "NOVA_MENSAGEM"
+```
 		
 # REFERÊNCIAS:
 [Atlassian Tutorials](https://www.atlassian.com/br/git/tutorials)
