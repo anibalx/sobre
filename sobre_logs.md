@@ -223,3 +223,4 @@
 # REFERÊNCIAS
   [Guia Foca Linux - Cap. 17](https://guiafoca.org/guiaonline/seguranca/ch03.html)
   [Linux Tips]()
+  [NLog.Targets.Syslog-Personal](https://github.com/luigiberrettini/NLog.Targets.Syslog-Personal/blob/master/docs/syslog-message-format.md)
