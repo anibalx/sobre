@@ -26,8 +26,8 @@ que atrasa a alocação de armazenamento até que seja realmente necessário.
     ```
       ### EX:
       * -enable-kvm == Habilite o suporte de virtualização total de KVM. Esta opção está disponível apenas se o suporte KVM estiver habilitado durante a compilação.
-      * -m <NUMERO> == MEMÓRIA
-      * -smp <NUMERO> == Especifique o número de núcleos que o convidado tem permissão para usar. O número pode ser maior do que os núcleos disponíveis no sistema host.
+      * -m <NUMERO> == MEMÓRIA | exemplo: 4G
+      * -smp <NUMERO> == Especifique o número de núcleos que o convidado tem permissão para usar. O número pode ser maior do que os núcleos disponíveis no sistema host. | exemplo: 4
       * -name <NAME> == nome da máquina
       * -hda <DISCO VIRTUAL>.extensão == Defina um disco rígido virtual e use o arquivo de imagem especificado para ele.
       * -cdrom <IMAGEM ISO> == Defina uma unidade de CDROM virtual e use o arquivo de imagem especificado para ela.  
