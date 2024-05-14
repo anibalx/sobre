@@ -1,3 +1,8 @@
+# Habilita docker
+```
+systemctl enable --now docker
+```  
+
 # Criação de um projeto mix localmente ligado ao container
 Usamos então a opção -v local_path:container_path, onde ambos os caminhos precisam ser absolutos. Vamos tentar criar um novo projeto de elixir usando `mix new` e ligar a montagem de um diretório local.
 
