@@ -5,7 +5,7 @@
 * Google Colab
 * SQL
 * History Telling
-* Data View -> MathPltLib || SeaBourne || Bokeh || Dash
+* Data View -> Matplotlib || SeaBourne || Bokeh || Dash
 * Data -> Pandas || Polars
 * Data Model -> Scikit Learn
 * Deep Learning -> TensorFlow || PyTorch | Keras
