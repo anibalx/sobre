@@ -36,7 +36,7 @@ Formas de não estudar Data Science
 ---
 
 # REFERENCIAS
-[3 formas de estudar Ciência de Dados que farão você desistir - Comunidade DS](https://youtube.com/watch?v=HoTJ82Bl-8)
-[A importância de um mentor de carreira na Ciência de Dados](https://youtube.com/watch?v=JdX71gzFRio)
-[alura - Principais dicas para entrevistas de emprego em Machine Learning ｜ #HipstersPontoTube](https://youtube.com/watch?v=s793NsrJ7TE)
-[Por que eu criei uma Comunidade e não só um curso de Ciência de Dados？](https://youtube.com/watch?v=PZm1mHku5Jg)
+[3 formas de estudar Ciência de Dados que farão você desistir - Comunidade DS](https://youtube.com/watch?v=HoTJ82Bl-8)  
+[A importância de um mentor de carreira na Ciência de Dados](https://youtube.com/watch?v=JdX71gzFRio)  
+[alura - Principais dicas para entrevistas de emprego em Machine Learning ｜ #HipstersPontoTube](https://youtube.com/watch?v=s793NsrJ7TE)  
+[Por que eu criei uma Comunidade e não só um curso de Ciência de Dados？](https://youtube.com/watch?v=PZm1mHku5Jg)  
