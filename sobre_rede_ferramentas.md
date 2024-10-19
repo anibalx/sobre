@@ -176,10 +176,82 @@ length | tamanho do payload   | Apenas o PUSH possui payload e tcpdump prioriza 
 
 ## TSHARK
 Wireshark em linha de comando
+> Todos os comando do tshark
+```
+  tshark -h
+```
+
+> Cheque a versão do Tshark
+```
+  tshark -v
+```
+
+> Cheque a versão do Tshark
+```
+  tshark -v
+```
+
+> LIste todas as interfaces de saída
+```
+  tshark -D
+```
+
+> Captura o tráfico de rede a partir de uma interface específica
+```
+  tshark -i <INTERFACE>
+
+  tshark -i eth0
+```
+
+> Capture apenas pacotes de rede de protocolo específico
+```
+  tshark -i <interface> -f "<protocol>"
+
+  tshark -i any -f "icmp"
+```
+
+> Capture apenas pacotes do IP de origem ou destino específico 
+```
+  tshark -i <interface> -f "host <IP>"
+
+  tshark -i any -f "host 192.168.0.104"
+```
+
+> Captura o tráfico de rede e copia para um arquivo específico
+```
+  tshark -i <interface> -w <file-name>.pcap
+
+  tshark -i eth0 -w traffic-capture.pcap
+```
+
+> Captura os pacotes e copia o tráfico para o arquivo, como uma duração específic
+* <time> is in seconds 
+```
+  tshark -i <interface> -a duration:<time>
+```
+
+> Leia os pacotes capturados e colocados entro do arquivo
+```
+  tshark -r <FILE>.pcap
+```
+
+> Desative a resolução de nomes de objetos de rede (como nome de host, nomes de portas TCP e UDP); a opção -N pode substituir esta.
+```
+  tshark -n <FILE>.pcap
+```
+
 > Leia o arquivo
 ```
   tshark -n -r <FILE>.pcap
 ```
+
+### REFERÊNCIAS
+[tshak docs](https://www.wireshark.org/docs/man-pages/tshark.html)  
+[tshark: Basic Tutorial with Practical Examples](http://allabouttesting.biz/index-68.html)  
+[Análise de tráfego malicioso com tshark (wireshark)](https://danieldonda.com/analise-de-trafego-malicioso-com-tshark-wireshark/)  
+[NIDS (Network Intrusion Detection System)](https://nobug.com.br/glossario/o-que-e-nids-network-intrusion-detection-system/)  
+[testmynids.org](https://github.com/3CORESec/testmynids.org)  
+
 
 ## LSPCI
 **Barramento PCI** uma placa de rede, por exemplo
