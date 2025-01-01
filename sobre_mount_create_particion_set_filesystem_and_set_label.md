@@ -5,7 +5,7 @@ Use a ferramenta que desejar para manipular as partições
 ```
 
 # Mkfs
-Use a ferramenta que desejar para buildar o sistemas de arquivos
+Use a ferramenta que desejar para "buildar" o sistemas de arquivos
 ```
   mkfs.ext4 <DEVICE> 
     # ex: mkfs.ext4 /dev/sda8

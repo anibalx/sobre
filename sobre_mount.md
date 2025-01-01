@@ -1,29 +1,58 @@
-# DIRETÓRIO PADRÃO
+# MONTAGEM
+## DIRETÓRIOS 
  
-   Diretory for installation -> /tmp/<DIRETORY>
+* Possible diretory for installation 
+	* /tmp/<DIRETORY>
+	* /media/{$USER}/<DIRETORY>
 
+In example, manual mount, i create directory in: /tmp/<DIRECTORY>
+> mkdir -p	= create directory with not exists
 ```
   sudo mkdir -p /tmp/arquivos
 ```  
 
+## MOUNT COMMAND
+```
+  mount /path/to/mount/point
+```  
+
+## UMOUNT COMMAND
+```
+  umount /path/to/mount/point
+```  
+
+## UDISKSCTL COMMAND FOR MOUNT
+* -b, --block-device        monte o dispositivo (device) pelo bloco
+```
+  udisksctl mount -b <BLOCK_DEVICE_NAME>
+```  
+
+## UDISKSCTL COMMAND FOR UMOUNT
+* -b, --block-device        monte o dispositivo (device) pelo bloco
+```
+  udisksctl umount -b <BLOCK_DEVICE_NAME>
+```  
+
+---
 
 # USB
 
-  Device -> /dev/<DEVICE>
+  * Device -> /dev/<DEVICE>
 
 ```
   lsblk
 ```  
 
-  possible -> sdc
+  * possible -> sdc
 
-  > n = number
+  * n = number
 
 ```
   mount /dev/sdcn /mnt/arquivos
   umount /mnt/arquivos
 ```  
 
+---
 
 # Smartphone
 ## Simple-mtpfs
@@ -63,7 +92,7 @@
 
 # Pendrive
 ```
-    mount -t vfat /dev/sdc1 /run/media/rui/pendrive
+    mount -t vfat /dev/sdc1 /run/media/{$USER}/pendrive
 ```  
 
 ---
