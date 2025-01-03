@@ -10,11 +10,13 @@
     librsvg2-bin cmake
 ```
 
+---
+
 ## Debian ***src***
 ### Download do repositório  
 ```
     git clone --recurse-submodules -j8 git://github.com/Stremio/stremio-shell.git
-```  
+```    
 ### Instalação de pacotes extras
 ```
     apt install qtcreator qt5-qmake qt5-default g++ pkgconf libssl-dev libmpv-dev libqt5webview5-dev libkf5webengineviewer-dev qml-module-qtwebchannel qml-module-qt-labs-platform qml-module-qtwebengine qml-module-qtquick-dialogs qml-module-qtquick-controls qtdeclarative5-dev
@@ -24,15 +26,15 @@
     cd stremio-shell
     qmake
     make
-```
+```  
 ### Baixe o servidor
 ```
     wget https://dl.strem.io/four/v4.4.111/server.js ; wget https://dl.strem.io/four/v4.4.111/stremio.asar
-```
+```  
 ### Execute o Stremio
 ```
     ./stremio
-```
+```  
 
 ## Pacotes extras caso dê erro na instalação
 ```
@@ -41,10 +43,14 @@
 
 ```
 
+---
+
 # CONFIGURE STREMIO DESKTOP
 ```
     sudo nano /usr/share/applications/stremio.desktop
 ```
+
+---
 
 # STREMIO DESKTOP
 ```
@@ -59,6 +65,8 @@
     Terminal=false
     StartupNotify=true
 ```
+
+---
 
 # STREMIO Debian ***.sh***
 ```
@@ -155,7 +163,10 @@
     esac
 
     exit 0
-```
+```  
+
+---
+
 # STREMIO OPENSUSE ***.sh***
 ```
     #!/usr/bin/env bash
@@ -253,7 +264,22 @@
     esac
 
     exit 0
+```  
+
+---
+
+# LOCAL DOS VÌDEOS DE STREMIO
+Instalado no sistema
 ```
+	~/.stremio/stremio-server/stremio-cache
+```  
+
+Com Flatpak
+```
+	 ~/.var/app/com.stremio.Stremio/.stremio-server/
+```  
+
+---
 
 # REFERENCES
 ## Debian
