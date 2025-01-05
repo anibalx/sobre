@@ -75,6 +75,11 @@
   exfatlabel /dev/sda3 EX_PART
 ```  
 
+## VFAT (EXTENSÃO FAT16)
+```
+  fatlabel /dev/sda3 EX_PART
+```  
+
 ---
 
 # MOUNT COM LABEL
