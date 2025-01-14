@@ -62,9 +62,9 @@ que atrasa a alocação de armazenamento até que seja realmente necessário.
 
 ---
       
-# Ligação de diretório entre host e vm
+# Ligação de diretório entre host e vm (host)
 ```sh
-  qemu-system-x86_64 -virtfs local,path=/home/rui/Documentos,security_model=none,mount_tag=home_share --enable-kvm -m 2G -smp 4 -name 'Machine' -hda disco_virtual.qcow2
+  qemu-system-x86_64 -virtfs local,path=/home/$USER/Documentos,security_model=none,mount_tag=home_share --enable-kvm -m 2G -smp 4 -name 'Machine' -hda disco_virtual.qcow2
 ```
 
 ## Dentro da máquina virtual
