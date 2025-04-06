@@ -1,3 +1,0 @@
-yabar
-polybar
-waybar:sway

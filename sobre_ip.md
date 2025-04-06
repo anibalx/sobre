@@ -26,10 +26,6 @@
 ```  
 
 ```sh
-   curl api.ipify.org
-```  
-
-```sh
    curl bot.whatismyipaddress.com
 ```  
 

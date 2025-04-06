@@ -1,4 +1,0 @@
-http://www.futurile.net/2016/06/15/xterm-256color-themes-molokai-terminal-theme/
-https://unix.stackexchange.com/questions/295156/does-the-xresources-configuration-file-affect-wayland
-https://www.reddit.com/r/wayland/comments/a8srf8/alternative_to_xrdb_xresources_in_wayland/
-https://stackoverflow.com/questions/27627017/how-to-change-the-xterm-icon-in-xfce4

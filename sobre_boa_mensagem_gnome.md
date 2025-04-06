@@ -7,11 +7,13 @@ a intensão é que este negócio seja usado desta forma...
 
 visão geral: recomenda-se que faça tal coisa, para que relatado problema não aconteça novamente.
 
+---
+
 # REFERÊNCIAS:
 
-    https://www.it-swarm.dev/pt/environment-variables/por-que-eu-tenho-que-source-.profile-em-cada-terminal-que-eu-abro/960696987/
+[](https://www.it-swarm.dev/pt/environment-variables/por-que-eu-tenho-que-source-.profile-em-cada-terminal-que-eu-abro/960696987/)
 
-
+---
 
 # COMO FAZER UMA REFERÊNCIA BIBLIOGRÁFICA
 

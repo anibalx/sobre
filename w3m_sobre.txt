@@ -1,0 +1,41 @@
+link: https://www.reddit.com/r/commandline/comments/4mgxps/how_to_use_vlc_to_open_youtube_urls_in_lynx/
+link: https://github.com/tokuhirom/w3m/blob/master/doc-jp/keymap.default
+link: https://www.youtube.com/watch?v=QczYT67JqYs
+link: https://unix.stackexchange.com/questions/12497/yanking-urls-in-w3m
+link: https://www.reddit.com/r/commandline/comments/6ixptv/open_current_w3m_video_site_url_with_mpv_the_easy/
+
+link: https://francismurillo.github.io/2017-01-11-Using-vlc-With-w3m/
+link: https://github.com/videolan/vlc/blob/master/share/lua/playlist/youtube.lua
+link: https://forum.videolan.org/viewtopic.php?t=146560
+link: https://github.com/videolan/vlc/blob/master/share/lua/playlist/youtube.lua
+
+o (minúsculo) = edita teclas
+M (maiúsculo) = abre browser externo
+H (maiúsculo) = mapa de teclas (keymap)
+
+dado que foi configurado algum comando:
+ex1: 
+	definição de um "External Browser"
+		extbrowser2 sh -c 'printf %s "$0" | xsel' <- permite que um link (URL) seja copiado para a área de tranferência	
+				
+
+	para fazer funcionar: 
+		cursor sobre o link
+		aperte:
+				2 ESC M (maiúsculo) <- salva na área de tranferência
+				ESC M (maiúsculo)	<- abre o link num navgador externo
+
+ex2: 
+	definição de um "External Browser"
+		extbrowser3 mpv -ytdl --vo=opengl --ao=alsa <- permite que o vídeo possa ser assistido através do link (URL) sem um browser externo	
+				
+
+	para fazer funcionar: 
+		cursor sobre o link
+		aperte:
+				3 ESC M (maiúsculo) <- salva na área de tranferência
+				ESC M (maiúsculo)	<- abre o link num navgador externo
+
+ctrl + b (C-b) = volta para o local anterior
+ctrl + o (C-o) = abre um editor externo
+

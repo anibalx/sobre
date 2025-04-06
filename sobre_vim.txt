@@ -195,6 +195,16 @@ LINK:
         https://pt.wikibooks.org/wiki/Vim/Repeti%C3%A7%C3%A3o_de_comandos
 
 
+Inserir Vários comando em sequência (uma só linha) com Nvim (nvim, Neo Vim)
+	set nu rnu | nnoremap cn *``cgn | nnoremap cN *``cgN | nnoremap ss i<space><esc> | nnoremap <A-l> :tabmove +1<CR> | nnoremap <A-h> :tabmove -1<CR> | nnoremap <space>z @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+	set nu rnu|nnoremap cn *``cgn|nnoremap cN *``cgN|nnoremap ss i<space><esc>|nnoremap <A-l> :tabmove +1<CR>|nnoremap <A-h> :tabmove -1<CR>|nnoremap <space>z @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+
+
+Abrir vários arquivos (files) com o Vim:
+	vim -o file1 file2 file3 = abre vários arquivos na horizontal (um abaixo no outro)
+	vim -p file1 file2 file3 = abre vários arquivos em abas (tabs) diferentes
+
+
 No modo normal, abrir terminal dentro do vim
 	:vertical terminal
 	: vert terminal (OBS: maneira simplificada)
@@ -213,13 +223,16 @@ d = deleta um caracter => dl (d seta para a direita) apaga caracter mais à dire
 D = deleta um caracter para trás
 dd = apaga linha atual => numerodd: 5dd (5d seta para baixo) apaga 5 linhas abaixo
 w = word (salta palavra)
-e = encontra próximo caracter
+e = encontra próximo caracter ao final da próxima palavra
+ge = encontra caracter anterior ao final da palavra anterior
 b = back (volte para a palavra)
 B = back (volte para a palavra) apenas espaço
 r = substitui um caracter
 y = yank (copy)
 Y = copia linha inteira
 f = encontra caracter: fa => encontra próximo caracter "a"
+, = esquerda (retrocede)
+; = direita  (avança)
 R = substitui o texto sobre a linha
 c = change (delete e entre no modo de inserção)
 x = deleta um caracter
@@ -241,7 +254,7 @@ O = insere quebra de linha acima
 s = substitui e copia a letra
 S = substitui e copia a linha
 c = substitui a palavra
-C = substitui a linha a partir de local no qual se econtra o cursor
+C = substitui a linha a partir de local no qual se encontra o cursor
 H = salta cursor para o top da tela
 M = salta cursor para o top da tela
 L = salta cursor para o final da linha
@@ -253,12 +266,16 @@ gf = caso esteja no buffer, abre o arquivo sob o cursor
 g8 = código ASCII de uma letra
 :g< = histórico de comandos
 gU = maiúsculas
+g<TAB> = vai e volta da tab atual para a anterior
 gt = vai para próxima tab
 gT = vai para próxima tab
+tabmove +1 = move tab para a direita
+tabmove -1 = move tab para a esquerda
 cc = apaga a linha e entra no modo de inserção
 G = Vai para a última linha
 I = mostra os arquivos ocultos
-gn = /palavra; pesquisa a correnpondência de termos
+gn = /palavra; pesquisa a correnpondência de termos (palavras) do último padrão usado, para frente
+gN = /palavra; pesquisa a correnpondência de termos (palavras) do último padrão usado, para trás
 gd = mostre a existência do mesmo termo ao longo do arquivo.
 cgn = apaga a palavra e entra no modo inserção; depois, é só apertar ponto (.) para modificar as outras correspondências
 ggVG = seleciona todas as linhas do arquivo
@@ -330,6 +347,17 @@ F5      => Refresh os arquivos
 
 
 Multiplos cursores:
+	Multi cursores (multicursores || Multicursores) Mapeamento (mapeamento):
+		Altera palavra || altera palavra || ALTERA PALAVRA:
+			vimscript:
+				nnoremap cn *``cgn
+				nnoremap cN *``cgN
+
+			lua:
+				map("n", "cn", '*``cgn', opt)
+				map("n", "cN", '*``cgN', opt)
+
+
 	EX: uso das teclas do vim: cgn.
 			/ola mundo
 			cgn		
@@ -578,7 +606,8 @@ BUFFERS:
     :bd = descarrega o buffer atual (não funciona caso tenha ocorrido modificação sem salvamento)
       :bd <NOME NO BUFFER><c-a> == completa os nomes para ser deletados do buffer
 
-	:bw = exclui o buffer atual (bw, w não é write, mas sim wipeout)
+	:bw = exclui (fecha, quit) o buffer atual (bw, w não é write, mas sim wipeout)
+	:bw <NÚMERO DO BUFFER> = exclui (fecha, quit) o buffer cujo número é colocado (bw, w não é write, mas sim wipeout)
 
     :%bd|e# = fecha (quit) buffers (menos o atual)
 
@@ -612,6 +641,8 @@ REGISTRADORES (register)
   .
   "z   => copia a linha para o registrador "z"
 
+  "+y  => copia para o registrador padrão (p = cola a linha colada)
+  "+y$ => copia a linha inteira para o registrador padrão (p = cola a linha colada)
   "ayy => copia a linha para o registrador "a"
   "ap  => cola o conteúdo do registrador "a" abaixo
   "bdd => apaga a linha atual para o registrador "b"
@@ -697,6 +728,17 @@ VOLTA NO TEMPO (aqui, 10 minutos)
 
 TEMPO
   time<TAB>
+
+
+RENOMEIA (MUDA NOME)
+  :saveas <NOVO_NOME.txt> | :!rm # <- hashtag (tralha, cerquilha, cancela, sustenido, octothorpe) faz referência ao nome anterior do arquivo
+    OU
+  :command! -nargs=1 Rename :saveas <args> | :!rm % || :command! -nargs=1 Rename :saveas <args> | :!rm #
+  :Rename novo_nome.txt
+
+
+SELECIONAR E BUSCAR FRASES (sem caracter final, quebra linha: ^@)
+  :nnoremap ç* V"zy:let @z=substitute(@z, '\n', '', 'g')<CR>:let @/='\V'.escape(@z, '\')<CR>n
 
 
 RENUMERA

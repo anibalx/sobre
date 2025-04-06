@@ -37,25 +37,25 @@ que atrasa a alocação de armazenamento até que seja realmente necessário.
     ```  
 
   * EMULA SEM DECLARAR A ORDEM DE BOOT E SEM IMAGEM (DISCO VIRTUAL)
-    > sem declarar **-boot d** e **-hda debian.qcow2**
+    > sem declarar a ordem de boot **-boot d** e sem declarar imagem **-hda debian.qcow2**
     ```sh
       qemu-system-x86_64 -enable-kvm -m 1G -smp 1 -name 'DEBIAN' -cdrom debian.iso
     ```  
 
   * EMULA SEM DECLARAR A ORDEM DE BOOT, SEM IMAGEM (DISCO VIRTUAL) E SEM ESPECIFICAR O FORMATO
-    > sem declarar **-boot d**, **-hda debian.qcow2** e **-cdrom debian.iso**
+    > sem declarar a ordem de boot **-boot d**, sem declarar a imagem **-hda debian.qcow2** e sem especificar o formato **-cdrom debian.iso**
     ```sh
       qemu-system-x86_64 -enable-kvm -m 1G -smp 1 -name 'DEBIAN' debian.iso
     ```  
 
   * EMULA SISTEMA SEM IMAGEM (DISCO VIRTUAL)
-    > sem declarar **-hda debian.qcow2**
+    > sem declarar a ordem de boot **-hda debian.qcow2**
     ```sh
       qemu-system-x86_64 -enable-kvm -m 1G -smp 1 -name 'DEBIAN' -boot d -cdrom debian.iso
     ```  
 
   * EMULA SISTEMA A PARTIR DA IMAGEM (DISCO VIRTUAL)
-    > com declaração de **debian.qcow2**
+    > com declaração de imagem **debian.qcow2**
     ```sh
       qemu-system-x86_64 -enable-kvm -m 1G -smp 1 -name 'DEBIAN' -boot d debian.qcow2
     ```  
