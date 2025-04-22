@@ -76,6 +76,26 @@ que atrasa a alocação de armazenamento até que seja realmente necessário.
   mount -t 9p -o trans=virtio,version=9p2000.L,msize=262144 home_share /mnt/shared_folder
 ```
 
+---
+
+# Alias para BASH
+
+```sh
+  # Criação de disco virtual para rodar arquivos .qcow2
+  alias qemu_create_virtual_disk="qemu-system-x86_64 --enable-kvm -m 2G -smp 4 -name 'Machine' -boot d -hda virtual_disk.qcow2"
+
+  # Ligação de diretório entre host e vm (ver sobre_qemu.md)
+  alias qemu_connect_local_and_machine_dir="qemu-system-x86_64 -virtfs local,path=/home/$USER/Documentos,security_model=none,mount_tag=home_share --enable-kvm -m 2G -smp 4 -name 'Machine' -hda virtual_disk.qcow2"
+
+  # Rode o QEMU com disco virtual
+  alias qemu_run_iso="qemu-system-x86_64 --enable-kvm -m 2G -smp 4 -name 'Machine' -boot d -hda virtual_disk.qcow2 -cdrom"
+
+  # Rode o QEMU
+  alias qemu_run="qemu-system-x86_64 --enable-kvm -m 2G -smp 4 -name 'Machine' -boot d -cdrom"
+```
+
+---
+
 # REFERÊNCIAS
 [Gentoo Wiki - QEMU](https://wiki.gentoo.org/wiki/QEMU/Options)
 [Arch Wiki - QEMU](https://wiki.archlinux.org/title/QEMU)

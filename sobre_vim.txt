@@ -195,9 +195,8 @@ LINK:
         https://pt.wikibooks.org/wiki/Vim/Repeti%C3%A7%C3%A3o_de_comandos
 
 
-Inserir Vários comando em sequência (uma só linha) com Nvim (nvim, Neo Vim)
-	set nu rnu | nnoremap cn *``cgn | nnoremap cN *``cgN | nnoremap ss i<space><esc> | nnoremap <A-l> :tabmove +1<CR> | nnoremap <A-h> :tabmove -1<CR> | nnoremap <space>z @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-	set nu rnu|nnoremap cn *``cgn|nnoremap cN *``cgN|nnoremap ss i<space><esc>|nnoremap <A-l> :tabmove +1<CR>|nnoremap <A-h> :tabmove -1<CR>|nnoremap <space>z @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+Inserir Vários comando em sequência (uma só linha) com Nvim (nvim, Neo Vim, NeoVim)
+	set nu rnu|nnoremap cn *``cgn|nnoremap cN *``cgN|nnoremap ss i<space><esc>|nnoremap <A-Right> :tabnext<CR>|nnoremap <A-Left> :tabprevious<CR>|nnoremap <A-l> :tabmove +1<CR>|nnoremap <A-h> :tabmove -1<CR>|nnoremap <space>z @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>|noremap <F7> :set hlsearch! hlsearch?<CR>|inoremap <F7> :set hlsearch! hlsearch?<CR>|nnoremap <A-j> :m .+1<CR>==|nnoremap <A-k> :m .-2<CR>==|inoremap <A-j> <Esc>:m .+1<CR>==gi|inoremap <A-k> <Esc>:m .-2<CR>==gi|vnoremap <A-j> :m '>+1<CR>gv=gv|vnoremap <A-k> :m '<-2<CR>gv=gv|set scrolloff=0|set colorcolumn=0|hi ColorColumn ctermbg=darkgrey guibg=lightgrey
 
 
 Abrir vários arquivos (files) com o Vim:
@@ -207,7 +206,8 @@ Abrir vários arquivos (files) com o Vim:
 
 No modo normal, abrir terminal dentro do vim
 	:vertical terminal
-	: vert terminal (OBS: maneira simplificada)
+	:vert terminal (OBS: maneira simplificada)
+
 
 Sem clipboard
 	No modo visual: 
@@ -274,15 +274,18 @@ tabmove -1 = move tab para a esquerda
 cc = apaga a linha e entra no modo de inserção
 G = Vai para a última linha
 I = mostra os arquivos ocultos
+
 gn = /palavra; pesquisa a correnpondência de termos (palavras) do último padrão usado, para frente
 gN = /palavra; pesquisa a correnpondência de termos (palavras) do último padrão usado, para trás
 gd = mostre a existência do mesmo termo ao longo do arquivo.
 cgn = apaga a palavra e entra no modo inserção; depois, é só apertar ponto (.) para modificar as outras correspondências
 ggVG = seleciona todas as linhas do arquivo
 gUaW = tudo para maiúscula
+
 zz = Coloca linha atual no centro da tela (Alinha on centro)
 zt = Coloca linha atual no topo da tela (Alinha on centro)
 zb = Coloca linha atual abaixo  da tela (Alinha on centro)
+
 zl = desloca janela para a direita
 zh = desloca janela para a esquerda
 2j = desça 2 linhas
@@ -312,6 +315,7 @@ dw = delete a palavra
 
 as = a sentença
 
+sw = cria swafil (arquivo swap, de temporário, de transição)
 
 tabnew = nova aba
 tabnew <ARQUIVO>=  cria arquivo em nova aba
@@ -428,12 +432,15 @@ split (nome do arquivo) = abrir tela horizontalmente
 
  
 # Dicionário
-set spell spellang=pt
-[s e ]s = navega entre erros de ortografia
-z = possíveis correções para a palavra
+  set spell spellang=pt
+  [s e ]s = navega entre erros de ortografia
+  z = possíveis correções para a palavra
 
 
-# REGEX
+# REGEX (regex)
+  ## EX do manual:
+    help pattern-multi-items
+
   \r    pula linha              '\n'
   \d    digit                   [0-9]
   \D    non-digit               [^0-9]
@@ -466,6 +473,41 @@ z = possíveis correções para a palavra
         :.s/\(\l\)\+/\u\1/g     # Coloca o retrovisor em maiúsculas: \u\1
         :.s/\(\l\)\+/\u\1\u\1/g # Repete o comando acima, já que tem duas letras a: \u\1
 
+  ## EX:
+      Separe as linhas por ponto (.) seguido por um espaço ou por ponto de interrogação (?), também seguido de espaço.
+        Bom dia. Já é noite? Não, ainda é dia!
+
+      Resposta esperada.
+        Bom dia
+        Já é noite
+        Não, ainda é dia!
+        :.                      # linha atual (ponto): .
+        :.s///g                 # comando de substituição: g == pega todas as ocorrências
+        :.s/\.//g               # Pega: ponto (.)
+        :.s/\.\s//g             # Pega: ponto (.) seguido de espaço (\s)
+        :.s/\.\s\|?\s//g        # Pega: ponto (.) seguido de espaço (\s) ou interrogação (?) seguinda de espaço (\s)
+        :.s/\(\l\)//g           # Aloca em um grupo: \(\)
+
+  ## EX:
+      Separe as linhas por ponto (.) seguido por um espaço ou por ponto de interrogação (?), também seguido de espaço.
+        Bom dia. Já é noite? Não, ainda é dia!
+
+      Resposta esperada.
+        Bom dia.
+        Já é noite?
+        Não, ainda é dia!
+        :.                        # linha atual (ponto): .
+        :.s///g                   # comando de substituição: g == pega todas as ocorrências
+        :.s/\.//g                 # Pega: ponto (.)
+        :.s/\.?//g                # Pega: ponto (.) seguido de interrogação (?)
+        :.s/[\.?]//g              # Combine em um grupo: []
+        :.s/\([\.?]\)//g          # Aloca em um grupo: \(\)
+        :.s/\([\.?]\)\s//g        # Depois de combinados ponto (.) e interrogação (?), que sejam seguidos por um espaço (\s)
+        :.s/\([\.?]\)\s\+//g      # Depois de combinados ponto (.) e interrogação (?), que sejam seguidos por um espaço (\s) e que contenha apenas uma ocorrência (\+)
+        :.s/\([\.?]\)\s\+/\1/g    # Pegue o agrupamengto realizado [.?] e o recoloque como um retrovisor (\1)
+        :.s/\([\.?]\)\s\+/\1\r/g  # Pegue o agrupamengto realizado [.?] e o recoloque como um retrovisor (\1), para em seguida quebrar a linha (\r)
+
+
   ## EX de REGEX no VIM:
       Comenta da linha 10 a linha 20, inclusive
         10,20s/^/#/
@@ -490,20 +532,22 @@ z = possíveis correções para a palavra
             37,+2s/"// <- (neovim) irá apagar da linha 37 mais 2 linhas abaixo
 
         
-Para ativar qualquer opção no vim:
-:set <option>
+# SET OPTIONS
+  Para ativar qualquer opção no vim:
+  :set <option>
 
-Para desativar qualquer opção no Vim:
-:set no<option>
+  Para desativar qualquer opção no Vim:
+  :set no<option>
 
-Para ativar / desativar uma opção:
-:set <option>!
+  Para ativar / desativar uma opção:
+  :set <option>!
 
-Para verificar se uma opção está ativada ou desativada:
-:set <option>?
+  Para verificar se uma opção está ativada ou desativada:
+  :set <option>?
 
-Para definir uma opção de volta ao seu padrão:
-:set <option>&
+  Para definir uma opção de volta ao seu padrão:
+  :set <option>&
+
 
 Modos 
     NORMAL, VISUAL, SELEÇÃO E OPERADOR
@@ -548,24 +592,13 @@ Macros
 				Ola, mundo!
 
 
-" TRUECOLORS
+# TRUECOLORS
 "set termguicolors
 "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 
-Incremento: CTRL+a
-	0
-	CTRL+a
-	1
-	
-Decremento: CTRL+x
-	1
-	CTRL+x
-	0
-
-
-MOVA LINHAS:
+# MOVA LINHAS:
   # Modo normal
   nnoremap <A-j> :m .+1<CR>==
   nnoremap <A-k> :m .-2<CR>==
@@ -579,7 +612,7 @@ MOVA LINHAS:
   vnoremap <A-k> :m '<-2<CR>gv=gv
 
 
-BUFFERS:
+# BUFFERS
 
 	:find <NOME_DO_MEU_ARQUIVO>
 
@@ -622,7 +655,7 @@ BUFFERS:
     sort n = ordena numericamente -> :1,15 sort n
 
 
-REGISTRADORES (register)
+# REGISTRADORES (register)
   # "{registrador}{comando}{movimento}
   registers = veja pilha armazenada dentro dos registradores
   "0   => último texto copiado para a área de tranferência
@@ -647,13 +680,13 @@ REGISTRADORES (register)
   "ap  => cola o conteúdo do registrador "a" abaixo
   "bdd => apaga a linha atual para o registrador "b"
 
-SALTOS (jumps)
+# SALTOS (jumps)
   jumps = veja a pilha de saltos
   cle = limpe a pilha de saltos
   CTRL + i => salta para trás
   CTRL + o => salta para frente
 
-ALTERAÇÔES (changes)
+# ALTERAÇÔES (changes)
   changes = veja lista de alterações
   ' <caracter> = navega até a última linha
   SHIFT + `` <caracter> = navega até a última posição exata
@@ -665,7 +698,7 @@ ALTERAÇÔES (changes)
   '. = navega até a linha na qual ocorreu a última modificação no buffers atual ( arquivo atual )
   '' =  navega para a última linha na qual ocorreu alguma alteração ainda dentro do arquivo
 
-MARCAS (marks)
+# MARCAS (marks)
   marks = veja a lista de marcas
   m<caracter> = seta uma marcação no elemento atual
   '<caracter> = navega até a linha contendo a marcação realizada em determinado arquivo
@@ -684,7 +717,7 @@ MARCAS (marks)
   delm <caracter> <caracter> = delete duas marcações
   delm <range>= delete um intervalo de marcações
 
-Dobras (Foldings):
+# DOBRAS (Foldings):
 	zf<NÚMERO> = crie uma dobra
 	zo = abra
 	za = toggle (abre e fecha)
@@ -700,7 +733,7 @@ Dobras (Foldings):
 	zD = delete recursivo
 
 
-Movimento entre arquivos:
+# Movimento entre arquivos:
   sobre o nome do arquivo:
     gf
   caso o nome do arquivo não esteja claro:
@@ -711,38 +744,48 @@ Movimento entre arquivos:
   CTRL + w gf = abre numa nova tab
 
 
-PRETTY JSON
+# PRETTY JSON
   jq == processador de json em linha de comando
   :%! jq .
 
 
-REPETIÇÃO DE COMANDOS
+# REPETIÇÃO DE COMANDOS
   80i-<Esc>  (Vim/Column)
   20gi-<Esc> (Nvim/Column) || 20i-<Esc> (Nvim/Line)
   , = esquerda (retrocede)
   ; = direita  (avança)
 
 
-VOLTA NO TEMPO (aqui, 10 minutos)
+# VOLTA NO TEMPO (aqui, 10 minutos)
   :earlier 10m
 
-TEMPO
+# TEMPO
   time<TAB>
 
 
-RENOMEIA (MUDA NOME)
+# RENOMEIA (MUDA NOME)
   :saveas <NOVO_NOME.txt> | :!rm # <- hashtag (tralha, cerquilha, cancela, sustenido, octothorpe) faz referência ao nome anterior do arquivo
     OU
   :command! -nargs=1 Rename :saveas <args> | :!rm % || :command! -nargs=1 Rename :saveas <args> | :!rm #
   :Rename novo_nome.txt
 
 
-SELECIONAR E BUSCAR FRASES (sem caracter final, quebra linha: ^@)
+# SELECIONAR E BUSCAR FRASES (sem caracter final, quebra linha: ^@)
   :nnoremap ç* V"zy:let @z=substitute(@z, '\n', '', 'g')<CR>:let @/='\V'.escape(@z, '\')<CR>n
 
 
-RENUMERA
-  selecione os números (neste exemplo, os zeros) e:
+# RENUMERA
+   Incremento: CTRL+a
+   	0
+   	CTRL+a
+   	1
+   	
+   Decremento: CTRL+x
+   	1
+   	CTRL+x
+   	0
+
+  EX: selecione os números (neste exemplo, os zeros) e:
       g CTRL + a
         0
         0
@@ -753,7 +796,8 @@ RENUMERA
         3
 
 
-PACKER
+
+# PACKER
 	Instalação de um pacote via packer
 	```bash
 		mkdir -p ~/.vim/pack/plugins/start
@@ -767,12 +811,12 @@ PACKER
 
 
 
-TERMINAL
+# TERMINAL
   "term://${PWD}/{PID}:/usr/bin/zsh"
   "term://~/computation/docker//3991:/usr/bin/zsh"
 
 
-TELESCOPE
+# TELESCOPE
     <C-x> == split
     <C-v> == vsplit
     <C-t> == new tab

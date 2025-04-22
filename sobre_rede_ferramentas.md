@@ -540,3 +540,48 @@ Demonstra DNS e IP
   host -4 myip.opendns.com resolver1.opendns.com
   curl ifconfig.me
 ```
+
+---
+
+# NMCLI
+* Ligar (Ativar) interface de rede
+```
+  nmcli radio wifi on
+
+```  
+
+* Limpar conexões salvas
+```
+  nmcli connection delete "<nome_da_conexão>"
+```  
+
+* Verifica interface
+```
+  nmcli dev wifi
+
+```  
+
+* Conecte-se a uma rede
+> <SSID>  = nome da rede
+> <senha> = senha da rede
+```
+  nmcli dev wifi connect "<SSID>" password "<senha>"
+
+```  
+
+* Verifique status da conexão
+```
+  nmcli connection show --active
+
+```  
+
+* Desconectar a rede Wifi
+```
+  nmcli connection down id "NOME_DA_REDE"
+
+```  
+
+* Desligar (Desativar) o Wifi completamente
+```
+  nmcli radio wifi off
+```  

@@ -88,11 +88,11 @@ CRIA (NOVA) SESSÂO e (NOVAS) JANELAS (TODAS COM NOME):
           }
 
 
-NAVEGAR ENTRE SESSÃO (LISTA DE SESSÕES):
+NAVEGAR ENTRE SESSÕES (LISTA DE SESSÕES):
         CTRL+b s
 
 
-NAVEGAR ENTRE SESSÃO:JANELAS (LISTA DE SESSÕES:JANELAS):
+NAVEGAR ENTRE SESSÕES:JANELAS (LISTA DE SESSÕES:JANELAS):
         CTRL+b w
         
 
@@ -256,6 +256,7 @@ SINCRONIZA JANELAS
         CTRL+b :
           run-shell 'tmux list-windows -t session | cut -d: -f1 | xargs -I{} tmux send-keys -t session:{} <COMANDO>'
 
+
 ############################# PAINEL ############################
 ABRIR PAINEL -> DIVISÃO VERTICAL (EXATA) (% = SHIFT+5):
         tmux split-window -v
@@ -391,7 +392,7 @@ SETTINGS:
 
 SETTINGS NUMA LINHA:
     SETA NOVO PREFIXO ^ NAVEGAR ENTRE JANELAS ^ COMANDO QUE SINCRONIZA (PAINÉIS) ^ ABRIR PAINEL NO DIRETÓRIO ATUAL
-	set -g prefix M-a ; bind-key -n S-right next-window ; bind-key -n S-left previous-window ; bind '"' split-window -c "#{pane_current_path}" ; bind '%' split-window -h -c "#{pane_current_path}"
+	set -g prefix M-a ; bind-key -n S-right next-window ; bind-key -n S-left previous-window ; bind '"' split-window -c "#{pane_current_path}" ; bind '%' split-window -h -c "#{pane_current_path}" ; bind-key -n M-z set-window-option synchronize-panes
 
 
 ############################### FUNÇÕES ##############################
@@ -408,7 +409,7 @@ tmx () {
     tmux attach-session -d -t SessionName
 }
 
-alias tmx='tmux source-file "${HOME}/.tmux/<NOME DO ARQUIVO>"'
+alias tmx='tmux source-file "${HOME}/.tmux/<NOME_DO_ARQUIVO>"'
 
 TMUX FUNÇÕES:
 #   -> https://stackoverflow.com/questions/48997929/how-do-i-create-a-tmux-session-with-multiple-windows-already-opened

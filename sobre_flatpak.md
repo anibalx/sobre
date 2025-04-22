@@ -72,6 +72,14 @@ flatpak uninstall --all
 sudo rm -rfv /var/tmp/flatpak-cache-*
 ```  
 
+## Flatpak via TTY
+```
+startx sh -c 'exec flatpak run run com.github.IsmaelMartinez.teams_for_linux'
+sway -c <(echo "exec flatpak run com.github.IsmaelMartinez.teams_for_linux")
+gnome-shell flatpak run com.github.IsmaelMartinez.teams_for_linux
+
+```  
+
 ---
 
 # REFERÊNCIAS
