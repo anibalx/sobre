@@ -195,8 +195,8 @@ LINK:
         https://pt.wikibooks.org/wiki/Vim/Repeti%C3%A7%C3%A3o_de_comandos
 
 
-Inserir Vários comando em sequência (uma só linha) com Nvim (nvim, Neo Vim, NeoVim)
-	set nu rnu|nnoremap cn *``cgn|nnoremap cN *``cgN|nnoremap ss i<space><esc>|nnoremap <A-Right> :tabnext<CR>|nnoremap <A-Left> :tabprevious<CR>|nnoremap <A-l> :tabmove +1<CR>|nnoremap <A-h> :tabmove -1<CR>|nnoremap <space>z @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>|noremap <F7> :set hlsearch! hlsearch?<CR>|inoremap <F7> :set hlsearch! hlsearch?<CR>|nnoremap <A-j> :m .+1<CR>==|nnoremap <A-k> :m .-2<CR>==|inoremap <A-j> <Esc>:m .+1<CR>==gi|inoremap <A-k> <Esc>:m .-2<CR>==gi|vnoremap <A-j> :m '>+1<CR>gv=gv|vnoremap <A-k> :m '<-2<CR>gv=gv|set scrolloff=0|set colorcolumn=0|hi ColorColumn ctermbg=darkgrey guibg=lightgrey
+Inserir Vários comando em sequência (uma só linha,Linha,LINHA) com Nvim (nvim, Neo Vim, NeoVim)
+	set nu rnu|nnoremap cn *``cgn|nnoremap cN *``cgN|nnoremap ss i<space><esc>|nnoremap sso i<ENTER><esc>|nnoremap <A-Right> :tabnext<CR>|nnoremap <A-Left> :tabprevious<CR>|nnoremap <A-l> :tabmove +1<CR>|nnoremap <A-h> :tabmove -1<CR>|nnoremap <space>z @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>|noremap <F7> :set hlsearch! hlsearch?<CR>|inoremap <F7> :set hlsearch! hlsearch?<CR>|nnoremap <A-j> :m .+1<CR>==|nnoremap <A-k> :m .-2<CR>==|inoremap <A-j> <Esc>:m .+1<CR>==gi|inoremap <A-k> <Esc>:m .-2<CR>==gi|vnoremap <A-j> :m '>+1<CR>gv=gv|vnoremap <A-k> :m '<-2<CR>gv=gv|set scrolloff=0|set colorcolumn=0|hi ColorColumn ctermbg=darkgrey guibg=lightgrey
 
 
 Abrir vários arquivos (files) com o Vim:
@@ -341,7 +341,7 @@ CTRL + t => Abre um arquivo em nova aba
 CTRL + z => Seleciona os arquivos que serão abertos
 CTRL + f => Alterna entre os tipos de search (Buffers, Files, MRU)
 CTRL + r => Alterar o tipo de search para usar regex
-CTRL + d => Alterar o tipo de search para nao considerar os nomes dos diretorios e somente o dos arquivos
+CTRL + d => Alterar o tipo de search para nao considerar os nomes dos diretórios e somente o dos arquivos
 CTRL + y => Criar arquivo e pastas de acordo com o caminho informado
 CTRL + u => desfazer
 CTRL + PageUp => volta 
@@ -551,7 +551,12 @@ split (nome do arquivo) = abrir tela horizontalmente
 
 Modos 
     NORMAL, VISUAL, SELEÇÃO E OPERADOR
+    	:map 			= MAPEIA COMANDO (mapeia comando)
+    	:unmap 		= DESMAPEIA COMANDO (desmapeia comando)
+
+    NORMAL, VISUAL, SELEÇÃO E OPERADOR
     	:map 			= RECURSIVA
+    	:unmap 		= RECURSIVA
     	:noremap 	= NÃO RECURSIVA
     
     MODO NORMAL
@@ -644,7 +649,8 @@ Macros
 
     :%bd|e# = fecha (quit) buffers (menos o atual)
 
-    :<NUMERO>, <NUMERO>bd = deleta todos os buffers em um intervalo
+    :<NUMERO>, <NUMERO>bd  = deleta todos os buffers em um intervalo
+    :<NUMERO>, <NUMERO>bd! = deleta todos os buffers em um intervalo (interrogação força que seja feito)
      
     n| = pula para a coluna n (número) da linha atual
 
@@ -766,7 +772,11 @@ Macros
 # RENOMEIA (MUDA NOME)
   :saveas <NOVO_NOME.txt> | :!rm # <- hashtag (tralha, cerquilha, cancela, sustenido, octothorpe) faz referência ao nome anterior do arquivo
     OU
-  :command! -nargs=1 Rename :saveas <args> | :!rm % || :command! -nargs=1 Rename :saveas <args> | :!rm #
+  :saveas ./<NOVO_NOME.txt> | :!rm # <- hashtag (tralha, cerquilha, cancela, sustenido, octothorpe) faz referência ao nome anterior do arquivo
+    OU
+  :saveas <DIRETÓRIO_DESEJADO>/<NOVO_NOME.txt> | :!rm # <- hashtag (tralha, cerquilha, cancela, sustenido, octothorpe) faz referência ao nome anterior do arquivo
+    OU
+  :command! -nargs=1 Rename :saveas <args> | :!rm % OU :command! -nargs=1 Rename :saveas <args> | :!rm #
   :Rename novo_nome.txt
 
 
