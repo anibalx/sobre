@@ -1,0 +1,64 @@
+# KIND
+
+## INSTALE O KIND (NESTE CASO, A PARTIR DA VERSÃO DE GO INSTALADA NA MÁQUINA)
+```
+go get sigs.k8s.io/kind
+```  
+
+### USE O COMPLETION DO KIND
+> Para Oh My ZSH.  
+```
+mkdir "${HOME}/.oh-my-zsh/custom/plugins/kind"
+kind completion zsh >> "${HOME}/.oh-my-zsh/custom/plugins/kind/_kind"
+```  
+
+## CRIE UM POD (NOMEADO)
+> kind create cluster --name << NOME DO POD >>  
+```
+kind create cluster --name giropops-01
+```  
+
+## INTERAJA COM SEU POD
+> kubectl cluster-info --context kind-<< NOME DO POD >>  
+```
+kubectl cluster-info --context kind-giropops-01
+```  
+
+## PEGUE (ACESSE) TODOS OS PODS
+```
+kind get clusters
+```  
+
+
+## DELETE O POD (NOMEADO)
+> kind delete cluster --name << NOME DO POD >>  
+```
+kind delete cluster --name giropops-01
+```  
+
+## Referência
+[Link Para Acessar a Ferramenta Kind - GitHub](https://github.com/kubernetes-sigs/kind/)  
+
+---
+
+# KUBECTL
+
+## BAIXA O KUBECTL
+```
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+```  
+
+## DÁ PERMISSÃO DE EXECUÇÃO AO KUBECTL
+```
+chmod +x kubectl
+```  
+
+## MOVA O KUBECTL PARA O DIRETÓRIO BIN, DO USUÁRIO QUE FEZ O DOWNLOAD DO KUBECTL
+```
+mv kubectl ~/.local/bin
+```  
+
+## PEGA INFORMAÇÃO DO CLUSTER
+```
+kubectl cluster-info --context kind-giropops-01
+```  

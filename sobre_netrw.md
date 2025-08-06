@@ -1,3 +1,25 @@
+# Manual
+```
+:help netrw = abre o menu sobre o netrw
+
+:h netwr-quickmap = exibe o mapa de teclas 
+
+:h netrw-gh = exibe e esconde arquivos ocultos (toggle hidden)
+```  
+
+---
+
+# Navegar Dentro do Manual do Vim
+```
+:help
+
+CTRL+] -> no tópico de interesse
+```  
+
+---
+
+# Alguns Comandos
+```
 s = sortdes (por tamanho, tempo, extensão e nome)
 
 r = sorted (a partir do maior ou a partir do menor)
@@ -16,18 +38,9 @@ d = cria um diretório
 
 c = faça o diretório atual o diretório de navegação
 
-:h netwr-quickmap = exibe o mapa de teclas 
-
-:h netrw-gh = exibe e esconde arquivos ocultos (toggle hidden)
-
 gh = exibe e esconde arquivos ocultos (toggle hidden)
 
 gha = exibe e esconde arquivos ocultos (toggle hidden)
  
 SHIFT+r (ou R maiúsculo) = renomeie o arquivo 
-
-navegar no vim:
-
-  :help
-
-  CTRL+] -> no tópico de interesse
+```  

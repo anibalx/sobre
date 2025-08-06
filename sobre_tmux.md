@@ -71,6 +71,7 @@ tmux new-session -d -s <NOME DA SESSÂO>
 ```  
 
 > OU
+
 ```sh
 tmux new -d -s <NOME DA SESSÂO>
 ```  
@@ -135,6 +136,11 @@ tmux new -d -s sessao -n "janela"
 ```sh
 tmux new -d -s "sessao" -n "janela"
 ```  
+
+## CRIA (NOVA) SESSÂO DE DENTRO DE UMA SESSÃO JÁ UTILIZADA
+```sh
+tmux new-session -d -s nova_sessao
+```
 
 ## CRIA (NOVA) SESSÂO e (NOVAS) JANELAS (TODAS COM NOME):
 ```sh
@@ -304,22 +310,27 @@ tmux send-keys -t "sessao:janela" "ls" "ENTER"
 ```sh
 tmux send-keys -t sessao:janela.painel ls ENTER
 ```  
+
 ### EX 11:
 ```sh
 tmux send-keys -t "sessao:janela.painel" ls ENTER
 ```  
+
 ### EX 12:
 ```sh
 tmux send-keys -t sessao:janela.painel "ls" ENTER
 ```  
+
 ### EX 13:
 ```sh
 tmux send-keys -t sessao:janela.painel ls "ENTER"
 ```  
+
 ### EX 14:
 ```sh
 tmux send-keys -t "sessao:janela.painel" "ls" "ENTER"
 ```  
+
 ### EX 15:
 ```sh
 tmux send-keys -t "0:0.0" "ls" "ENTER"
@@ -332,7 +343,7 @@ CTRL+b d
 	
 ## ENTRAR (RETORNAR) PARA A SESSÃO:
 ```sh
-	tmux attach-session -t <NOME DA SESSÃO>
+tmux attach-session -t <NOME DA SESSÃO>
 ```  
 
 ### EX 0:
@@ -350,7 +361,12 @@ tmux attach-session -t "sessao"
 tmux attach-session -t "minha_sessao"
 ```  
 
-## MATA (MATAR) SESSÃO
+### EX 3:
+```sh
+tmux attach -t sessao
+```  
+
+## MATA (MATAR, APAGAR, DELETAR) SESSÃO
 ```sh
 tmux kill-session -t <SESSÃO>
 ```  
@@ -433,7 +449,7 @@ tmux new-session -d -s <NOME A SESSÃO> \; <NOVA JANELA> \; <NOVA JANELA> \; <NO
 tmux neww -n "<NOME DA JANELA>" "<COMANDO A SER EXECUTADO>"
 ```  
 
-## VOLTAR PARA JANELA:
+## VOLTAR PARA JANELA (SESSÃO):
 ```sh
 tmux attach
 ```  
@@ -500,6 +516,52 @@ tmux move-window -s git -t 1
 tmux move-window -s "git" -t 1
 ```  
 
+## MOVER (JOGAR, ENVIAR) JANELA DENTRO DA MESMA SESSÃO E SE MOVER EM CONJUNTO
+```sh
+CTRL+b : 
+  swap-window -t -1; previous-window
+  swap-window -t +1; next-window
+```  
+
+> OU
+
+```sh
+tmux swap-window -s <SESSÂO>:<NÙMERO DA JANELA A SER MOVIDA PARA ESQUERDA> -t <SESSÂO>:-1\; previous-window
+tmux swap-window -s <SESSÂO>:<NÙMERO DA JANELA A SER MOVIDA PARA DIREITA> -t <SESSÂO>:+1\; next-window
+```  
+
+> OU
+
+```sh
+tmux swap-window -t -1\; previous-window
+tmux swap-window -t +1\; next-window
+```  
+
+> OU
+
+```sh
+bind-key -n C-S-left swap-window -t -1\; previous-window
+bind-key -n C-S-right swap-window -t +1\; next-window
+```  
+
+### EX 0 (ESQUERDA, ANTERIOR, PRÉVIA):
+```sh
+CTRL+b :
+  swap-window -t -1; previous-window
+```  
+
+### EX 1 (DIREITA, POSTERIOR, PRÓXIMA):
+```sh
+CTRL+b :
+  swap-window -t +1; next-window
+```  
+
+### EX 2: (ESQUERDA-DIREITA, PRIVIOUS-NEXT, VAI-E-VOLTA):
+```sh
+tmux swap-window -s sessao:2 -t sessao:-1\; previous-window
+tmux swap-window -s sessao:1 -t sessao:+1\; next-window
+```  
+
 ## MOVER (JOGAR, ENVIAR) JANELA (PARA OU OUTRA SESSÃO)
 ```sh
 CTRL+ . <NOME DA SESSÃO QUE RECEBERÁ A JANELA>
@@ -527,7 +589,7 @@ tmux move-window -s 0 -t 1
 tmux move-window -s sessao:0 -t base:1
 ```  
 
-### EX 1:
+### EX 2:
 ```sh
 tmux move-window -s sessao:janela -t base:1
 ```  
@@ -692,6 +754,88 @@ CTRL+b ]
           CTRL + b-o
 ```  
 
+## MOVE (ATIRA, JOGA, ENVIA) PAINEL (PARA OUTRA SESSÃO/JANELA)
+```sh
+CTRL+ : move-pane -s <NÚMERO DO PAINEL> -t <SESSÂO>:<JANELA>
+```  
+
+> OU
+
+```sh
+CTRL+ : move-pane -s <NÚMERO DO PAINEL> -t <SESSÂO>:<JANELA>.<NÚMERO DO PAINEL>
+```  
+
+> OU
+
+### EX 0:
+```sh
+CTRL+ : move-pane -s 0 -t 0:0.0
+```  
+
+### EX 1:
+```sh
+CTRL+ : move-pane -s 0 -t sessao:janela.0
+```  
+
+### EX 2:
+```sh
+CTRL+ : move-pane -s 0 -t sessao:janela.1
+```  
+
+### EX 3:
+```sh
+CTRL+ : move-pane -s 1 -t sessao:janela.0
+```  
+
+### EX 4:
+```sh
+CTRL+ : move-pane -s 1 -t sessao:janela.1
+```  
+
+> OU
+
+```sh
+tmux move-pane -s <NÚMERO DO PAINEL> -t sessao:janela.<NÚMERO DO PAINEL>
+```   
+
+## TROCA (ATIRA, JOGA, ENVIA) PAINEL (PARA OUTRA SESSÃO/JANELA)
+```sh
+CTRL+ : swap-pane -s <NÚMERO DO PAINEL> -t <SESSÂO>:<JANELA>.<NÚMERO EXISTENTE DO PAINEL>
+```  
+
+> OU
+
+### EX 0:
+```sh
+CTRL+ : swap-pane -s 0 -t 0:0.0
+```  
+
+### EX 1:
+```sh
+CTRL+ : swap-pane -s 0 -t sessao:janela.0
+```  
+
+### EX 2:
+```sh
+CTRL+ : swap-pane -s 0 -t sessao:janela.1
+```  
+
+### EX 3:
+```sh
+CTRL+ : swap-pane -s 1 -t sessao:janela.0
+```  
+
+### EX 4:
+```sh
+CTRL+ : swap-pane -s 1 -t sessao:janela.1
+```  
+
+> OU
+
+```sh
+tmux swap-pane -s <NÚMERO DO PAINEL> -t sessao:janela.<NÚMERO EXISTENTE DO PAINEL>
+```   
+
 ## ALTERA O TAMANHO DOS PAINÉIS
 ```sh
 (segura o CTRL) (aperta b+seta)
@@ -800,7 +944,7 @@ bind-key -n M-z set-window-option synchronize-panes
 ## SETTINGS NUMA LINHA:
 > SETA NOVO PREFIXO ^ NAVEGAR ENTRE JANELAS ^ ABRIR PAINEL NO DIRETÓRIO ATUAL ^ COMANDO QUE SINCRONIZA (PAINÉIS)
 ```sh
-set -g prefix M-a ; bind-key -n S-right next-window ; bind-key -n S-left previous-window ; bind '"' split-window -c "#{pane_current_path}" ; bind '%' split-window -h -c "#{pane_current_path}" ; bind-key -n M-z set-window-option synchronize-panes
+set -g prefix M-a ; bind-key -n S-right next-window ; bind-key -n S-left previous-window ; bind '"' split-window -c "#{pane_current_path}" ; bind '%' split-window -h -c "#{pane_current_path}" ; bind-key -n M-z set-window-option synchronize-panes ; bind-key -n C-S-left swap-window -t -1\; previous-window ; bind-key -n C-S-right swap-window -t +1\; next-window
 ```  
 
 ## PLUGINS
@@ -874,6 +1018,13 @@ set -g @resurrect-strategy-nvim 'session'
 (NÃO USADO) set -g @plugin 'git@bitbucket.com:user/plugin'
 ```  
 
+### TMUX BATTERY
+```sh
+(NÃO USADO) set -g @plugin 'tmux-plugins/tmux-battery'
+# Formato: ícone + porcentagem + tempo restante
+(NÃO USADO) set -g @tmux_power_right '🔋 #{battery_icon} #{battery_percentage} #{battery_remain} | #{date_icon} #{date} #{time_icon} #{time}'
+```  
+
 ### TMUX SAVE AND RESTORE AUTOMATICALLY
 ```sh
 set -g @continuum-restore 'on'
@@ -938,3 +1089,4 @@ alias tmx='tmux source-file "${HOME}/.tmux/<NOME_DO_ARQUIVO>"'
 [Tmux Using hjkl to Navigate Panes](https://stackoverflow.com/questions/30719042/tmux-using-hjkl-to-navigate-panes)  
 [Tmux Create New Window on Current Directory](https://serverok.in/tmux-create-new-window-on-current-directory)  
 [How To Create a New Window on The Current Directory in Tmux](https://unix.stackexchange.com/questions/12032/how-to-create-a-new-window-on-the-current-directory-in-tmux)  
+[TMP - Tmux Plugins](https://github.com/tmux-plugins/tpm)  

@@ -544,10 +544,25 @@ Demonstra DNS e IP
 ---
 
 # NMCLI
+* Mostra informações sobre os dispositivos conhecidos  
+```
+  nmcli device show
+```  
+
+* Informações sobre conexões ativas  
+```
+  nmcli connection show
+```  
+
+* Lista dispositivos
+```
+  nmcli device wifi list
+
+```  
+
 * Ligar (Ativar) interface de rede
 ```
   nmcli radio wifi on
-
 ```  
 
 * Limpar conexões salvas

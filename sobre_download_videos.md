@@ -10,6 +10,7 @@
 
 * Abra a solicitação e, na subseção ***_Cabeçalhos_***, você verá o URL completo da solicitação no campo URL da solicitação . Copie-o.
 
+---
 
 # FFMEPG
 ```
@@ -20,10 +21,37 @@
   ffmpeg -i "input.mxf" -pix_fmt yuv420p -c:v libx264 -preset fast -crf 22 -c:a aac -b:a 192k -movflags +faststart "test.mp4"
 ```
 
+---
+
 # YOUTUBE-DL
 ```
   youtube-dl <input.m3u8>
 ```  
+
+---
+
+# WISTIA
+
+## Ferramentas de Desenvolvedor
+Inspecionar elementos da página procurar por: embed/iframe abrir link encontrado numa nova página.  
+
+## Dentro da nova página
+```
+Ferramentas de desenvolvedor
+Sources
+  embed/iframe
+    procurar por mp4
+      url ... .bin
+abrir link numa nova página
+```  
+
+## Dentro da nova página
+```
+  substituir .bin por .mp4
+    faça download
+```  
+
+---
 
 # REFERÊNCIAS
 [FFMPEG mp4 from http live streaming m3u8 file?](https://stackoverflow.com/questions/32528595/ffmpeg-mp4-from-http-live-streaming-m3u8-file)

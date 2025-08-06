@@ -1,8 +1,14 @@
+# For OpenSuse
+```
 sudo zypper in libqt5-qtbase libqt5-qttools libqt5-qtspeech-devel libqt5-qtserialbus libqt5-qtscript-devel libqt5-qtquick3d-tools libqt5-qtquick3d-devel
+```  
 
+## XDG Mime
+```
 xdg-mime query filetype <MINHA_IMAGEM>
-file -i <MINHA_IMAGEM>
+```  
 
-https://pt.pornhub.com/view_video.php?viewkey=ph5e8f4691ac950
-https://pt.pornhub.com/view_video.php?viewkey=ph5e0a0231cdc31
-https://camclips.to/video/vQUK
+## File
+```
+file -i <MINHA_IMAGEM>
+```  

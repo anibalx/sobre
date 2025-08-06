@@ -44,10 +44,16 @@
 - **CTRL+Y**: Cola o texto previamente apagado com **CTRL+U**, **CTRL+K** ou **CTRL+W**.
 
 ## Controle de processos e jobs:
-- **CTRL+Z**: Suspende o processo em execução.
-- **CTRL+D**: Fecha o terminal ou encerra a sessão (se estiver em uma linha vazia).
-- **CTRL+C**: Interrompe o comando em execução.
-- **CTRL+\**: Finaliza o processo em execução (gera um `core dump`).
+- **fc**:                    Executa comandos do histórico.
+- **jobs**:                  Verifica os processos em execução.
+- **fg %<PROCESS_NUMBER>**   Retornar um trabalho para primeiro plano.
+- **bg %<PROCESS_NUMBER>**   Retornar um trabalho em segundo plano (não tem acesso a entrada do shell, mas ainda pode sair para o shell).
+- **<COMMAND> &**            Inicia trabalho em segundo plano.
+- **kill %<PROCESS_NUMBER**  Mata processo.
+- **CTRL+Z**:                Suspende o processo em execução.
+- **CTRL+D**:                Fecha o terminal ou encerra a sessão (se estiver em uma linha vazia).
+- **CTRL+C**:                Interrompe o comando em execução.
+- **CTRL+\**:                Finaliza o processo em execução (gera um `core dump`).
 
 ## Outros comandos úteis:
 - **CTRL+X CTRL+E**: Abre o editor padrão para editar o comando atual.
