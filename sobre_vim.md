@@ -898,3 +898,12 @@ packloadall
 <C-v> == vsplit
 <C-t> == new tab
 ```  
+
+---
+
+# PDF
+## Gnome  
+> % + <TAB> == expande até o diretótio atual  
+```
+!evince %<TAB>
+```  
