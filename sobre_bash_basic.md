@@ -1,3 +1,35 @@
+# Install Completion in Debian based  
+```
+apt update
+apt upgrade
+apt install bash-completion
+```  
+
+## Local bash completion  
+```
+/etc/profile.d/bash_completion.sh
+```
+
+## Install in .bashrc
+```
+echo "source /etc/profile.d/bash_completion.sh" >> ~/.bashrc
+```  
+
+## Referência
+[Cyberciti - Bash Auto Completion](https://www.cyberciti.biz/faq/add-bash-auto-completion-in-ubuntu-linux/)  
+
+---
+
+# Criação de um completion
+```
+complete -W 'google.com globo.com gov.br' host
+```  
+
+## Referência
+[Cyberciti - Bash Auto Completion](https://www.cyberciti.biz/faq/add-bash-auto-completion-in-ubuntu-linux/)  
+
+---
+
 # Atalhos de edição úteis no Bash
 
 ## Movimentação do cursor:
