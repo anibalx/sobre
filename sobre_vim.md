@@ -448,6 +448,101 @@ Não, ainda é dia!
 :.s/\([\.?]\)\s\+/\1\r/g  # Pegue o agrupamengto realizado [.?] e o recoloque como um retrovisor (\1), para em seguida quebrar a linha (\r)
 ```  
 
+## EX 3:
+```
+:.                                                              # linha atual ( . )
+:.s/^\[\]                                                       # do início da linha ( ^ ), pegue colchetes ( \[\] )
+:.s/^\[\](.*)                                                   # do início da linha ( ^ ), pegue colchetes ( \[\] ) que são seguidos por parentêses ( () ), contendo qualquer coisa dentro deles ( (.*) ).
+:.s/\(\s[0-9a-zA-Z\-\s\_].*\)$//                                # agrupe ( \(\) ) um espaço ( \s ), seguido de uma lista que contenha dígitos ( 0-9 ), letras minúsculas ( a-z ), letras maiúsculas ( A-Z ), um traço ( \- ), um espaço ( \s ) e um underscore ( \_ ) em qualquer quantidade ( .* ) a partir do final da linha ( $ )
+:.s/^\[\](.*)\(\s[0-9a-zA-Z\-\s\_].*\)$//                       # do início da linha ( ^ ), pegue colchetes ( \[\] ), seguido por qualquer coisa dentro de parentêses ( (.*) ). A partir daí, agrupe ( \(\) ) um espaço ( \s ), seguido de uma lista que contenha dígitos ( 0-9 ), letras minúsculas ( a-z ), letras maiúsculas ( A-Z ), um traço ( \- ), um espaço ( \s ) e um underscore ( \_ ) em qualquer quantidade ( .* ). Isso, até o final da linha ( $ )
+:.s/^\(\[\)\(\]\)\((.*)\)\s\([0-9a-zA-Z\-\s\_].*\)$/            # do início da linha ( ^ ), agrupe um colchete  ( \(\[\) ) e depois agrupe o seu fechamento ( \(\]\) ). Após isso, agrupe qualquer coisa dentro de parentêses ( \((.*)\) ). Depois, pegue um espaço ( \s ). A partir daí, agrupe ( \(\) ), uma lista que contenha dígitos ( 0-9 ), letras minúsculas ( a-z ), letras maiúsculas ( A-Z ), um traço ( \- ), um espaço ( \s ) e um underscore ( \_ ) em qualquer quantidade ( .* ). Isso, até o final da linha ( $ )
+:.s/^\(\[\)\(\]\)\((.*)\)\s\([0-9a-zA-Z\-\s\_].*\)$/\1\4\2\3    # do início da linha ( ^ ), agrupe um colchete  ( \(\[\) ) e depois agrupe o seu fechamento ( \(\]\) ). Após isso, agrupe qualquer coisa dentro de parentêses ( \((.*)\) ). Depois, pegue um espaço ( \s ). A partir daí, agrupe ( \(\) ), uma lista que contenha dígitos ( 0-9 ), letras minúsculas ( a-z ), letras maiúsculas ( A-Z ), um traço ( \- ), um espaço ( \s ) e um underscore ( \_ ) em qualquer quantidade ( .* ). Isso, até o final da linha ( $ ). Por fim, use retrovisores ( \1 \1 \2 \3 \4) para reajustar as posições dos elementos.
+```  
+
+
+Resposta esperada.  
+```
+[](https://br.patos.com/NotAla-/profile) _NotAla-
+[_NotAla-](https://br.patos.com/NotAla-/profile)  
+
+[](https://br.patos.com/NotAla-/profile) NotAla-
+[NotAla-](https://br.patos.com/NotAla-/profile)  
+
+[](https://newgame.com/papel) papel - não
+[papel - não](https://newgame.com/papel)  
+
+[](https://baruk.com/_pombo/) _pombo _pombo12
+[_pombo _pombo12](https://baruk.com/_pombo/)  
+
+[](https://br.patos.com/harucute) harucute _pombo12
+[harucute _pombo12](https://br.patos.com/harucute)
+
+[](https://baruk.com/pombo33/) h4ruk4 - pombo33
+[h4ruk4 - pombo33](https://baruk.com/pombo33/)
+
+[](https://baruk.com/_pombo/) _pombo _pombo12 pombo33
+[_pombo _pombo12 pombo33](https://baruk.com/_pombo/)
+
+[](https://roleplay.me/page/7040680/play) mascate
+[mascate](https://roleplay.me/page/7040680/play)
+
+[](https://pt.pontedeferro.com/) carro
+[carro](https://pt.pontedeferro.com/)
+
+[](https://pneu.com/profile/carro) carro
+[carro](https://pneu.com/profile/carro)
+
+[](https://pt.patos.com/carro) carro
+[carro](https://pt.patos.com/carro)
+
+[](https://www.plantapiche.com/models/carro/) carro
+[carro](https://www.plantapiche.com/models/carro/)
+
+[](https://baruk.com/_altavoltagem__/) _Altavoltagem__
+[_Altavoltagem__](https://baruk.com/_altavoltagem__/)
+
+[](https://baruk.com/amostra/) amostra bases
+[amostra bases](https://baruk.com/amostra/)
+
+[](https://baruk.com/bases/) bases amostra
+[bases amostra](https://baruk.com/bases/)
+
+[](https://www.plantapiche.com/search/Aqui_Vaza%Aqui%Vaza/) Aqui_Vaza Aqui Vaza
+[Aqui_Vaza Aqui Vaza](https://www.plantapiche.com/search/Aqui_Vaza%Aqui%Vaza/)
+
+[](https://baruk.com/molde/) molde papiloma
+[molde papiloma](https://baruk.com/molde/)
+
+[](https://www.google.com/search?q=papiloma+baruk) papiloma | molde
+[papiloma | molde](https://www.google.com/search?q=papiloma+baruk)
+
+[](https://www.modelagem.tv/765046/molde3/?play=true) papiloma | molde
+[papiloma | molde](https://www.modelagem.tv/765046/molde3/?play=true)
+
+[](https://www.pipa.tv/models/papiloma/) papiloma | molde
+[papiloma | molde](https://www.pipa.tv/models/papiloma/)
+
+[](https://www.pratica.com/page.kddovpfe363/quem_e_ela_acho_que_ela_e_de_chaturbate) papiloma | molde
+[papiloma | molde](https://www.pratica.com/page.kddovpfe363/quem_e_ela_acho_que_ela_e_de_chaturbate)
+
+[](https://www.pratica.com/models/banana-x-1) Banana
+[Banana](https://www.pratica.com/models/banana-x-1)
+
+[](https://pt.patos.com/MORGADO1) MORGADO1
+[MORGADO1](https://pt.patos.com/MORGADO1)
+
+[](https://baruk.com/_achados_/) _perdidos_ _achados_
+[_perdidos_ _achados_](https://baruk.com/_achados_/)
+
+[](https://www.pratica.com/models/mogno-celestial) Checagem Avulsa mogno-celestial
+[Checagem Avulsa mogno-celestial](https://www.pratica.com/models/mogno-celestial)
+
+[](https://baruk.com/apirante/) Batuque - Lã
+[Ponta_Firme&#39;Batuque - Lã](https://baruk.com/apirante/)
+
+[](https://baruk.com/nepomuceno/) nepomuceno - player
+[nepomuceno - player](https://baruk.com/nepomuceno/)
+```  
 
 ## EX de REGEX no VIM:
 > Comenta da linha 10 a linha 20, inclusive
