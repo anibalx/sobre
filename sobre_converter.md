@@ -44,7 +44,7 @@ find . -type f -iname "*.webm" -exec bash -c 'FILE="$1"; ffmpeg -i "${FILE}" -vn
 > função criada e executada em um linha  
 
 ```
-  ff(){ FILE="${1}" ; EXT="${2}" ; ffmpeg -i "${FILE}" "${FILE%.*}.${EXT}" ; } ; ff video.mp4 mp3
+  ffconvert(){ FILE="${1}" ; EXT="${2}" ; ffmpeg -i "${FILE}" "${FILE%.*}.${EXT}" ; } ; ffconvert video.mp4 mp3
 ```  
 
 ---
