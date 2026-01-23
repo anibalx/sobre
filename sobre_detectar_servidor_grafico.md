@@ -1,6 +1,8 @@
 # Comando
 ```
- echo "${XDG_SESSION_TYPE}"
+echo $XDG_SESSION_TYPE
+# ou
+loginctl show-session $(loginctl | grep $(whoami) | awk '{print $1}') -p Type
 ```
 
 # REFERÊNCIAS

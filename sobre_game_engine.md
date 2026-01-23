@@ -9,8 +9,8 @@ Motor de jogos, Libs (bibliotecas) de jogos
 * [Oxygine](https://github.com/oxygine/oxygine-framework)
 
 ## Python
-* [Pygame]()
-* [Pyglet]()
+* [Pygame](https://www.pygame.org/docs/)  
+* [Pyglet](https://github.com/pyglet/pyglet)  
 
 # REFERÊNCIAS
 [Terminal Root - Conheça 5 Bibliotecas para Criação de Jogos 2D em C++ 🎮 🕹️ ](https://www.youtube.com/watch?v=6_uFAeW1PAM])

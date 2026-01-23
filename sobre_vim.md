@@ -324,16 +324,29 @@ cursor sobre a palavra: ola
 
 # Split
 
-- split (nome do arquivo) = abrir tela horizontalmente 
-- vplit (nome do arquivo) = abrir tela verticalmente 
-- (CTRL + w) + (CTRL + w) = salta entre telas ordenadamente
-- CTRL + w + (setas) = salta entre telas
-- CTRL + w + r = rotaciona entre as janelas
-- CTRL + w + v = abre arquivo verticalmente
-- CTRL + w + s = abre arquivo horizontalmente
-- CTRL + w + n = abre novo arquivo na horizontalmente 
-- CTRL + w + o = fecha (quit) as telas (janelas)
-- CTRL + w + T = move página atual para nova tab
+- **new** = abrir nova aba (tela) horizontalmente acima  
+- **new (nome do arquivo)** = abrir tela horizontalmente  
+- **split** = abrir mesma aba (tela) horizontalmente acima  
+- **sp** = abrir mesma aba (tela) horizontalmente acima  
+- **split (nome do arquivo)** = abrir tela horizontalmente acima  
+- **vs** = abrir tela verticalmente à direita  
+- **vs (nome do arquivo)** = abrir tela verticalmente à direita  
+- **vsplit (nome do arquivo)** = abrir tela verticalmente à direita  
+- **sp (nome do arquivo)** = abrir tela horizontalmente acima  
+- **below sp (nome do arquivo)** = abrir tela horizontalmente abaixo  
+- **below split (nome do arquivo)** = abrir tela horizontalmente abaixo  
+- **belowright sp (nome do arquivo)** = abrir tela horizontalmente abaixo  
+- **belowright split (nome do arquivo)** = abrir tela horizontalmente abaixo  
+- **topleft sp (nome do arquivo)** = abrir tela horizontalmente acima  
+- **topleft split (nome do arquivo)** = abrir tela horizontalmente acima  
+- **(CTRL + w) + (CTRL + w)** = salta entre telas ordenadamente  
+- **CTRL + w + (setas)** = salta entre telas  
+- **CTRL + w + r** = rotaciona entre as janelas  
+- **CTRL + w + v** = abre arquivo verticalmente  
+- **CTRL + w + s** = abre arquivo horizontalmente  
+- **CTRL + w + n** = abre novo arquivo na horizontalmente  
+- **CTRL + w + o** = fecha (quit) as telas (janelas)  
+- **CTRL + w + T** = move página atual para nova tab  
 
 ---
 
@@ -864,6 +877,17 @@ v<selecione o nome do arquivo>gf
 
 CTRL + w f  = abre numa nova janela
 CTRL + w gf = abre numa nova tab
+```  
+
+# Sincronização de Rolagem
+```
+:set scrollbind        " Sincroniza rolagem
+:set cursorbind
+```  
+
+```
+:set nocursorbind
+:set noscrollbind      " Desativa sincronização
 ```  
 
 ---
