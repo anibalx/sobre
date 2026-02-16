@@ -57,7 +57,7 @@
 
 ---
 
-# Comandos em uma linha
+# COMANDOS EM UMA LINHA
 > Inserir Vários comando em sequência (uma só linha,Linha,LINHA) com Nvim (nvim, Neo Vim, NeoVim)  
 ```
 set nu rnu|nnoremap cn *``cgn|nnoremap cN *``cgN|nnoremap ss i<space><esc>|nnoremap sso i<ENTER><esc>|nnoremap <A-Right> :tabnext<CR>|nnoremap <A-Left> :tabprevious<CR>|nnoremap <A-l> :tabmove +1<CR>|nnoremap <A-h> :tabmove -1<CR>|nnoremap <space>z @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>|noremap <F7> :set hlsearch! hlsearch?<CR>|inoremap <F7> :set hlsearch! hlsearch?<CR>|nnoremap <A-j> :m .+1<CR>==|nnoremap <A-k> :m .-2<CR>==|inoremap <A-j> <Esc>:m .+1<CR>==gi|inoremap <A-k> <Esc>:m .-2<CR>==gi|vnoremap <A-j> :m '>+1<CR>gv=gv|vnoremap <A-k> :m '<-2<CR>gv=gv|set scrolloff=0|set colorcolumn=0|hi ColorColumn ctermbg=darkgrey guibg=lightgrey|set cursorline
@@ -65,7 +65,7 @@ set nu rnu|nnoremap cn *``cgn|nnoremap cN *``cgN|nnoremap ss i<space><esc>|nnore
 
 ---
 
-# Abrir vários arquivos (files)
+# ABRIR VÁRIOS ARQUIVOS (FILES)
 ```
 vim -o file1 file2 file3 = abre vários arquivos na horizontal (um abaixo no outro)
 vim -p file1 file2 file3 = abre vários arquivos em abas (tabs) diferentes
@@ -73,7 +73,7 @@ vim -p file1 file2 file3 = abre vários arquivos em abas (tabs) diferentes
 
 ---
 
-# Abrir terminal dentro do vim
+# ABRIR TERMINAL DENTRO DO VIM
 ```
 :vertical terminal
 ```  
@@ -84,7 +84,7 @@ vim -p file1 file2 file3 = abre vários arquivos em abas (tabs) diferentes
 
 ---
 
-# Copia para área de tranferência do sistema
+# COPIA PARA ÁREA DE TRANFERÊNCIA DO SISTEMA
 ```
 Sem clipboard
 	No modo visual: 
@@ -97,7 +97,7 @@ Sem clipboard
 
 ---
 
-# Lista de comandos
+# LISTA DE COMANDOS
 
 - 50 % = vai para o meio o arquivo
 - d = deleta um caracter => dl (d seta para a direita) apaga caracter mais à direita
@@ -244,7 +244,7 @@ Sem clipboard
 
 ---
 
-# Multiplos cursores:
+# MULTIPLOS CURSORES
 > Multi cursores (multicursores || Multicursores) Mapeamento (mapeamento):  
 > Altera palavra || altera palavra || ALTERA PALAVRA:  
 ```vimscript
@@ -273,8 +273,7 @@ Olá, mundo!
 Olá, mundo!
 ```  
 
-
-## EX: seleção visual de bloco (CTRL+y)
+## EX 1: seleção visual de bloco (CTRL+y)
 ```
 CTRL + y 
 	olá, mundo!
@@ -296,17 +295,18 @@ bolá, mundo!
 
 ---
 
-# Multi seleção:
-## EX: uso das teclas do vim: gd.
+# MULTI SELEÇÃO
+## EX: uso das teclas do vim: gd
 ```
 ola mundo
       ola marreco
       marrocos ola
       marmita com feijão borrado, ola
 
-cursor sobre a palavra: ola
-      aperte as teclas: gd		
 ```  
+Cursor sobre a palavra: **ola**  
+Aperte as teclas: **gd**		
+
 
 ### Resultado:
 ```
@@ -318,6 +318,23 @@ cursor sobre a palavra: ola
     Ola = será reconhecido
     Olá = não será reconhecido 
     olola = não será reconhecido  
+```  
+
+# MULTI SELEÇÃO DE FRASES
+## EX 0: demonstração de teclas capazes de selecionar todas linhas do arquivo (completa, até o final)
+```
+gggH<C-O>G
+```  
+
+## EX 1: configuração de teclas capazes de selecionar uma linha inteira (completa, até o final)
+> Ctrl+a - para selecionar tudo dentro do arquivo em diversos modos diferentes dentro do nvim.  
+```
+noremap <C-A> gggH<C-O>G
+inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
+cnoremap <C-A> <C-C>gggH<C-O>G
+onoremap <C-A> <C-C>gggH<C-O>G
+snoremap <C-A> <C-C>gggH<C-O>G
+xnoremap <C-A> <C-C>ggVG
 ```  
 
 ---
@@ -865,7 +882,7 @@ zD = delete recursivo
 
 ---
 
-# Movimento entre arquivos:
+# MOVIMENTO ENTRE ARQUIVOS:
 > sobre o nome do arquivo:  
 ```
 gf
@@ -878,8 +895,9 @@ v<selecione o nome do arquivo>gf
 CTRL + w f  = abre numa nova janela
 CTRL + w gf = abre numa nova tab
 ```  
+---
 
-# Sincronização de Rolagem
+# SINCRONIZAÇÃO DE ROLAGEM
 ```
 :set scrollbind        " Sincroniza rolagem
 :set cursorbind
@@ -910,16 +928,17 @@ CTRL + w gf = abre numa nova tab
 
 ---
 
-# VOLTA NO TEMPO (aqui, 10 minutos)
+# TEMPO
 ```
-:earlier 10m
+:time<TAB>
 ```  
 
 ---
 
-# TEMPO
+# VOLTA NO TEMPO
+> No xemplo abaixo, volta 10 minutos.  
 ```
-:time<TAB>
+:earlier 10m
 ```  
 
 ---
@@ -984,7 +1003,6 @@ g CTRL + a
 ```  
 
 ---
-
 
 # PACKER
 > Instalação de um pacote via packer
