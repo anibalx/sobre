@@ -1,11 +1,11 @@
 ## Converte opml em markdown
-```
-pandoc PodcastAddict_OPML_export_20240511_095346.opml.xml -f opml -t markdown -s -o podcast_addict.md
-```
 * -f <ORIGINAL_TYPE_FILE>
 * -t <NEW_TYPE_FILE>
 * -s == cria com cabeçalho e rodapé
 * -o <NEW_FILE_NAME>
+```
+  pandoc PodcastAddict_OPML_export_20240511_095346.opml.xml -f opml -t markdown -s -o podcast_addict.md
+```  
 
 ---
 
@@ -13,16 +13,16 @@ pandoc PodcastAddict_OPML_export_20240511_095346.opml.xml -f opml -t markdown -s
 ```
   pandoc -o -t html testinho.pdf test.md
   pandoc test.md -t html >> teste.html
-```
+```  
 
 ---
 
 ## Gera pdf por meio de uma arquivo markdown (.md)
 ```
-  uso de: wkhtmltopdf 
+#  uso de: wkhtmltopdf 
     pandoc -o testinho.pdf --pdf-engine=wkhtmltopdf test.md
 
-  uso de: groff 
+#  uso de: groff 
     pandoc -o testinho.pdf --pdf-engine=pdfroff test.md
 ```
 
@@ -33,6 +33,8 @@ pandoc PodcastAddict_OPML_export_20240511_095346.opml.xml -f opml -t markdown -s
   mandoc -T pdf TEST.md > README.pdf
 ```
 
+---
+
 # REFERÊNCIAS
 [pandoc docs](https://pandoc.org/getting-started.html)  
 
@@ -40,4 +42,4 @@ pandoc PodcastAddict_OPML_export_20240511_095346.opml.xml -f opml -t markdown -s
 
 [it-swarm - plug vim para visualizar markdown](https://www.it-swarm.dev/pt/vim/existe-um-plug-vim-para-visualizar-arquivos-de-remarcacao/942406456/)  
 
-[kristaps - simple markdown translator](https://kristaps.bsd.lv/lowdown/)
+[kristaps - simple markdown translator](https://kristaps.bsd.lv/lowdown/)  

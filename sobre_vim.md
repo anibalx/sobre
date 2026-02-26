@@ -216,10 +216,10 @@ Sem clipboard
 - CTRL + g = nome do arquivo
 - CTRL + w = (modo de inserção) apaga para a esquerda (trás)
 - CTRL + w = (modo normal) = equalização da janelas (do tamanhos)
-- CTRL + w = (modo normal) + horizontalmente, com uma ou mais abertas, aumenta a exibição da aba (varia para qual direção, devido a posição da aba)
-- CTRL + w = (modo normal) - horizontalmente, com uma ou mais abertas, diminui a exibição da aba (varia para qual direção, devido a posição da aba)
-- CTRL + w = (modo normal) > verticalmente, com uma ou mais abertas, aumenta a exibição da aba (varia para qual direção, devido a posição da aba)
-- CTRL + w = (modo normal) < verticalmente, com uma ou mais abertas, diminui a exibição da aba (varia para qual direção, devido a posição da aba)
+- CTRL + w = (modo normal) + horizontalmente, com uma ou mais abertas, aumenta a exibição da aba (varia para qual direção, devido a posição da aba - tamanho)
+- CTRL + w = (modo normal) - horizontalmente, com uma ou mais abertas, diminui a exibição da aba (varia para qual direção, devido a posição da aba - tamanho)
+- CTRL + w = (modo normal) > verticalmente, com uma ou mais abertas, aumenta a exibição da aba (varia para qual direção, devido a posição da aba - tamanho)
+- CTRL + w = (modo normal) < verticalmente, com uma ou mais abertas, diminui a exibição da aba (varia para qual direção, devido a posição da aba - tamanho)
 - CTRL + a = incremento
 - CTRL + x = decremento
 - CTRL + x CTRL + p = (modo de inserção) autocompletar palavra para cima
@@ -504,11 +504,11 @@ Resposta esperada.
 [](https://baruk.com/_pombo/) _pombo _pombo12
 [_pombo _pombo12](https://baruk.com/_pombo/)  
 
-[](https://br.patos.com/harucute) harucute _pombo12
-[harucute _pombo12](https://br.patos.com/harucute)
+[](https://br.patos.com/blasfemus) blasfemus _pombo12
+[blasfemus _pombo12](https://br.patos.com/blasfemus)
 
-[](https://baruk.com/pombo33/) h4ruk4 - pombo33
-[h4ruk4 - pombo33](https://baruk.com/pombo33/)
+[](https://baruk.com/pombo33/) n4do - pombo33
+[n4do - pombo33](https://baruk.com/pombo33/)
 
 [](https://baruk.com/_pombo/) _pombo _pombo12 pombo33
 [_pombo _pombo12 pombo33](https://baruk.com/_pombo/)
@@ -607,6 +607,12 @@ Resposta esperada.
 ```
 37,s/"// <- (neovim) irá apagar um bloco de comando, como: if-endif
 37,+2s/"// <- (neovim) irá apagar da linha 37 mais 2 linhas abaixo
+```  
+
+> Do início da linha ( ^ ), pegue pelo menos um ( + ) caracter ( # ). A seguir, agrupe qualquer coisa ( (.*) ) até uma espaço e uma tralha ( \s\# ).  
+> Substitua isso por uma hashtag ( # ) e coloque um retrovisor com o que foi agrupado antes.  
+```
+.s/^\#\+\(.*\)\s\#\+/#\1/ <- ########## dotfiles/connect/sftp ########## -> # dotfiles/connect/sftp
 ```  
 
 ---
@@ -975,16 +981,16 @@ CTRL + w gf = abre numa nova tab
 
 ---
 
-# RENUMERA
+# RENUMERA (NÚMEROS)
+> Incremento: CTRL+a (CTRL + a, Ctrl+a, Ctrl + a, ctrl+a, ctrl + a)  
 ```
-Incremento: CTRL+a
-0
-CTRL+a
-1
+    0
+    CTRL+a
+    1
 ```  
 	
+> Decremento: CTRL+x (CTRL + x, Ctrl+x, Ctrl + x, ctrl+x, ctrl + x)  
 ```
-Decremento: CTRL+x
 	1
 	CTRL+x
 	0
@@ -992,14 +998,14 @@ Decremento: CTRL+x
 
 ## EX: selecione os números (neste exemplo, os zeros) e:
 ```
-g CTRL + a
-0
-0
-0
+    g CTRL + a
+    0
+    0
+    0
 
-1
-2
-3
+    1
+    2
+    3
 ```  
 
 ---
