@@ -40,3 +40,14 @@ CTRL+p === gm
 ```sh
 SHIFT+3 === #
 ```  
+
+# CRIA COMANDO
+Em **"#{HOME}/.config/mpv/input.conf"** adicione a seguinte linha:  
+```
+S playlist-shuffle
+```  
+
+## Como Usar
+```
+SHIFT + s
+```  

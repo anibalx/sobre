@@ -84,6 +84,38 @@ In example, manual mount, i create directory in: /tmp/<DIRECTORY>
 
 ---
 
+## ADB
+> list device
+```
+  adb devices
+```  
+
+> abra a conecção
+```
+  adb pull /sdcard/DCIM/foto.jpg .
+```  
+
+> finalizar sessão
+```
+  adb disconnect
+```  
+
+> encerrar servidor
+```
+  adb kill-server
+```  
+
+---
+
+## Ifuse
+> mount/umount device
+```
+  ifuse ~/mnt-iphone
+  fusermount -u ~/mnt-iphone || umount ~/mnt-iphone || fusermount -uz ~/mnt-iphone
+```  
+
+---
+
 # ISO
 ```
     mount -o ro -t iso9660 <FILE>.iso /mnt/arquivos

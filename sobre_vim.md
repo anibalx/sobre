@@ -574,7 +574,7 @@ Resposta esperada.
 [nepomuceno - player](https://baruk.com/nepomuceno/)
 ```  
 
-## EX de REGEX no VIM:
+## EX de REGEX no VIM
 > Comenta da linha 10 a linha 20, inclusive
 ```
 10,20s/^/#/
@@ -614,6 +614,23 @@ Resposta esperada.
 ```
 .s/^\#\+\(.*\)\s\#\+/#\1/ <- ########## dotfiles/connect/sftp ########## -> # dotfiles/connect/sftp
 ```  
+
+> Do início da linha ( ^ ), pegue no mínimo ( \{3,\} ) três ocorrências do caracter ( # ).  
+```
+:.s/^\#\{3,\}/#/
+```  
+
+> Do início da linha ( ^ ), pegue extamente ( \{3\} ) três ocorrências do caracter ( # ).  
+> Substitua isso por uma hashtag ( # )  
+```
+:.s/^\#\{3\}/#/
+```  
+
+### EX de REGEX no VIM - Pega Linha Completa
+1. nnoremap cl :let @/='\V'.escape(getline('.'), '\')<CR>cgn|nnoremap cL :let @/='\V'.escape(getline('.'), '\')<CR>cgN
+2. nnoremap cl :let @/='\V'.escape(getline('.'), '\/')<CR>``cgn|nnoremap cL :let @/='\V'.escape(getline('.'), '\/')<CR>``cgN
+3. nnoremap cl :let @/='\V'.escape(getline('.'), '\/')<CR>``cgn|nnoremap cL :let @/='\V'.escape(getline('.'), '\/')<CR>``cgN
+4. nnoremap cl :let @/ = '\V\c' . escape(trim(getline('.')), '\')<CR>cgn|nnoremap cL :let @/ = '\V\c' . escape(trim(getline('.')), '\')<CR>cgN
 
 ---
         
