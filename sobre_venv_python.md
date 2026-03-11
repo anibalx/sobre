@@ -13,11 +13,13 @@ cd <DIR>
 
 # Aciona o ambiente virtual em Python
 ```sh
+python3 -m venv . # Para local
 python3 -m venv <VENV_NAME>
 ```  
 
 # Ativação de ambiente virtual em Python
 ```sh
+source bin/activate # Para local
 source <VENV_NAME>/bin/activate
 ```  
 
