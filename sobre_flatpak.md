@@ -10,6 +10,16 @@ flatpak uninstall <ID_APP>
 flatpak uninstall org.gimp.GIMP
 ```  
 
+## Remova dependências órfãs
+```
+flatpak uninstall --unused
+```
+
+## Exclua dados residuais de apps desinstalados
+```
+flatpak uninstall --delete-data <APP>
+```
+
 ## Executa aplicação instalada
 ```sh
 flatpak run <ID_APP>
