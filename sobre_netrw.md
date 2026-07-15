@@ -44,3 +44,20 @@ gha = exibe e esconde arquivos ocultos (toggle hidden)
  
 SHIFT+r (ou R maiúsculo) = renomeie o arquivo 
 ```  
+
+---
+
+# Mover Arquivo
+Sobre o diretório ➜ Destina o arquivo (mt)  
+```
+mt
+```  
+
+Sobre o arquivo ➜ Marque o arquivo (mf)  
+```
+mf
+```  
+Sobre o diretório ➜ Executar movimento (mm)  
+```
+mm
+```  
