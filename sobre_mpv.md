@@ -24,6 +24,11 @@ CTRL+p === gm
   mpv --sub-file="<SUB-FILE>.srt"
 ```
 
+# VIDEO IN TERMINAL GNOME-TERMINAL
+```sh
+  mpv --vo=tct /path/to/your/video.mp4
+```
+
 # SELECIONE A PLAYLIST
 > Dentro do mpv, vários comandos começam com g-<<letra>>.  
 ```sh

@@ -354,19 +354,19 @@
 ---
 
 # AMEND - substitui commit por novo commit
-```
+```sh
 	git commit -m "mensagem de substituição deste novo commit" --amend
 ```  
 
 ## Alterar a mensagem de um commit
-```
+```sh
     git commit --amend -m "NOVA_MENSAGEM"
 ```  
 
 ---
 
 # Clone do Projeto para o Pendrive
-```
+```sh
 	git clone --bare . /tmp/pendrive/projeto.git
 	git remote add origin /tmp/pendrive/projeto.git
 ```  
@@ -375,7 +375,7 @@
 
 # Entregar Repositório a um Servidor Qualquer
 > Dentro do diretório **/tmp/pendrive/projeto.git**
-```
+```sh
 	git --bare update-server-info
 	mv hooks/post-update.sample hooks/post-update
 	python -m http.server 8000 &
@@ -386,11 +386,27 @@
 ---
 
 # Clonar apenas uma branch
-```
+```sh
     git clone <URL> --branch <NOME_DA_BRANCH> --single-branch
 ```  
 
 ---
+
+# Criar Repositorio LFS
+> Repositório para arquivos grandes.  
+```sh
+  git lfs install  
+  mkdir meu-projeto
+  cd meu-projeto
+  git init
+  git lfs track "*.zip" && git lfs track "*.mp4" && git lfs track "*.pdf"
+  git add .gitattributes && git add .gitignore
+  git add modelo.gguf
+  git commit -m "Adiciona modelo usando Git LFS"
+  git remote add origin https://github.com/usuario/meu-projeto.git
+  git push -u origin main
+  git lfs ls-files
+```
 
 		
 # REFERÊNCIAS:
