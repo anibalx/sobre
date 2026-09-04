@@ -56,3 +56,10 @@ S playlist-shuffle
 ```
 SHIFT + s
 ```  
+
+---
+
+# RHYTHMBOX
+```sh
+rhythmbox-client --play-uri="file://$(pwd)/Twice - GO HARD [VSc74fDej4I].mp3
+```
