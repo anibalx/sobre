@@ -1,3 +1,12 @@
+# CONFIGURAR REPOSITÓRIO GIT LOCALMENTE TENDO CRIADO UM REMOTO VAZIO
+```sh
+git init --initial-branch=main --object-format=sha1
+git remote add origin git@gitlab.com:usuario/repositório.git
+git add .
+git commit -m "Initial commit"
+git push --set-upstream origin main
+```  
+
 # CRIAR REPOSITÓRIO NUMA LINHA
 > OBS: origin = nome local do repositório
 ```sh 
