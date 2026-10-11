@@ -1,5 +1,19 @@
 # CONFIGURAR REPOSITÓRIO GIT LOCALMENTE TENDO CRIADO UM REMOTO VAZIO
 ```sh
+git config --local user.name "My Name"
+git config --local user.email "meuemail@email.com"
+git init --initial-branch=main --object-format=sha1
+git remote add origin git@gitlab.com:anibalx/teste_shell.git # git remote add origin git@gitlab.com:usuario/repositório.git
+# git lfs install
+git lfs track "*.pdf" # git lfs track "*.zip"
+git add .gitattributes
+git add .
+git commit -m "Initial commit"
+git push --set-upstream origin main
+``` 
+
+# CONFIGURAR REPOSITÓRIO GIT LOCALMENTE TENDO CRIADO UM REMOTO VAZIO
+```sh
 git init --initial-branch=main --object-format=sha1
 git remote add origin git@gitlab.com:usuario/repositório.git
 git add .
